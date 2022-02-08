@@ -8,12 +8,12 @@ You need to have [nodejs](https://nodejs.org) (>=12.8.0) installed on your syste
 
 Clone the repo:
    ```sh
-   git clone https://github.com/granite-lab/psychic-granite.git
+   git clone https://github.com/siddhantmittal024/Level-Up.git
    ```
    
 Change to the project directory after cloning using the command:
   ```sh
-   cd level-up
+   cd Level-Up
    ``` 
    
 Once you clone, to install all the dependencies run:
