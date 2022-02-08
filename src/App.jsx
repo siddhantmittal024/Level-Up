@@ -11,8 +11,6 @@ import Dashboard from './components/Dashboard/Dashboard';
 import { PublicRoute } from './components/routers/PublicRoute';
 import { PrivateRoute } from './components/routers/PrivateRoute';
 
-const Loading = () => <>Loading!!</>;
-
 function App() {
   const dispatch = useDispatch();
   const [isAuthenticated, setAuthenticated] = useState(true);
