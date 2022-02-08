@@ -1,26 +1,31 @@
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import Homepage from './components/Homepage/Homepage';
-import Dashboard from './components/Dashboard/Dashboard';
-import { onAuthStateChanged } from 'firebase/auth';
-import { useDispatch,useSelector } from 'react-redux';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+import { onAuthStateChanged, getAuth } from 'firebase/auth';
+import { useDispatch } from 'react-redux';
 import { getCurrentUserData } from './redux/userSlice';
 import { authentication } from './firebase/firebase.util';
+
+import Homepage from './components/Homepage/Homepage';
+import Dashboard from './components/Dashboard/Dashboard';
 import { PublicRoute } from './components/routers/PublicRoute';
 import { PrivateRoute } from './components/routers/PrivateRoute';
 
+const Loading = () => <>Loading!!</>;
+
 function App() {
-  const [user,setUser] = useState(null);
   const dispatch = useDispatch();
+  const [isAuthenticated, setAuthenticated] = useState(true);
+
   useEffect(() => {
-   onAuthStateChanged(authentication, (user) => {
+    onAuthStateChanged(authentication, (user) => {
       if (user) {
-        //console.log('USER:',user);
         dispatch(getCurrentUserData(user.uid));
-        setUser(user);
+        setAuthenticated(true);
+      } else {
+        setAuthenticated(false);
       }
     });
-    //return authListener;
   }, []);
 
   return (
@@ -28,7 +33,12 @@ function App() {
       <div className="App">
         <Switch>
           <PublicRoute exact path="/" component={Homepage} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <PrivateRoute
+            exact
+            path="/dashboard"
+            component={Dashboard}
+            isAuthenticated={isAuthenticated}
+          />
         </Switch>
       </div>
     </Router>

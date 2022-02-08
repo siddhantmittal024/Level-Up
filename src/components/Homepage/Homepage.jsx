@@ -1,12 +1,15 @@
 import React from 'react';
 import { db, authentication } from '../../firebase/firebase.util';
-import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { userSlice } from '../../redux/userSlice';
 import { getDoc, doc, setDoc } from 'firebase/firestore';
+import { useHistory } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 const Homepage = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSignIn = async () => {
     const provider = new GoogleAuthProvider();
@@ -16,8 +19,6 @@ const Homepage = () => {
 
     try {
       const signedInUser = await signInWithPopup(authentication, provider);
-      //setUser(signedInUser);
-      //console.log(signedInUser);
 
       const userr = {
         name: signedInUser.user.displayName,
@@ -25,38 +26,29 @@ const Homepage = () => {
         role: 'student'
       };
 
-      //console.log(signedInUser.user.uid);
-
       const userRef = doc(db, 'users', signedInUser.user.uid);
       const userData = await getDoc(userRef);
-      //console.log(userData.data());
 
       if (!userData.exists()) {
         await setDoc(doc(db, 'users', signedInUser.user.uid), userr);
         dispatch(userSlice.actions.addUser(userr));
+        history.push('/dashboard');
       } else {
         dispatch(userSlice.actions.addUser(userData.data()));
+        history.push('/dashboard');
       }
     } catch (err) {
       console.log(err);
     }
   };
 
-  const handleSignOut = async () => {
-    signOut(authentication)
-      .then(() => {
-        dispatch(userSlice.actions.signOut());
-        console.log('user is signed out');
-      })
-      .catch((err) => {});
-  };
-
   return (
     <div>
       <div>
         <h1>Welcome to Level-Up!</h1>
-        <button onClick={handleSignIn}>LOGIN</button>
-        <button onClick={handleSignOut}>Logout</button>
+        <Button variant="contained" onClick={handleSignIn}>
+          LOGIN
+        </Button>
       </div>
     </div>
   );
