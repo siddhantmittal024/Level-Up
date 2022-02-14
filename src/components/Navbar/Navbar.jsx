@@ -79,9 +79,9 @@ const Navbar = ({ name }) => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex' }}}
           >
-            <Link to="/dashboard">LEVEL UP</Link>
+            <Link to="/dashboard" style={{textDecoration:'none',color:'white'}}>LEVEL UP</Link>
           </Typography>
 
           <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
@@ -124,7 +124,7 @@ const Navbar = ({ name }) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            <Link to="/dashboard">LEVEL UP Responsive</Link>
+            <Link to="/dashboard" style={{textDecoration:'none',color:'white'}}>LEVEL UP Responsive</Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}></Box>
 

@@ -16,9 +16,11 @@ export default function StudentDashboard() {
         columns={{ xs: 2, sm: 8, md: 12 }}
         alignItems="center">
       
-        {Array.from(Array(6)).map((_, index) => (
+        {titles.map((title, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>
-            <SectionCard/>
+            <Link to={`/${title}`} style={{textDecoration:'none'}}>
+            <SectionCard title={title} />
+            </Link>
           </Grid>
         ))}
       </Grid>
