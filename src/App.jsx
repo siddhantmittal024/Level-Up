@@ -37,6 +37,10 @@ function App() {
             component={Dashboard}
             isAuthenticated={isAuthenticated}
           />
+          <PrivateRoute
+          exact
+          path="/internships"
+          component={Dashboard}/>
         </Switch>
       </div>
     </Router>

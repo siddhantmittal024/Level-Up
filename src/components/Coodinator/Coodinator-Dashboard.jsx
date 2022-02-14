@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function CDCDashboard() {
+export default function CoordinatorDashboard() {
     return(
         <div>
           <div>
