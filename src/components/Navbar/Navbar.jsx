@@ -16,6 +16,7 @@ import { userSlice } from '../../redux/userSlice';
 import { authentication } from '../../firebase/firebase.util';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { stringAvatar } from '../../utils/stringAvatar';
 
 const Navbar = ({ name }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -43,36 +44,8 @@ const Navbar = ({ name }) => {
     setAnchorElNav(null);
   };
 
-  function stringToColor(string) {
-    let hash = 0;
-    let i;
-
-    /* eslint-disable no-bitwise */
-    for (i = 0; i < string.length; i += 1) {
-      hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
-
-    let color = '#';
-
-    for (i = 0; i < 3; i += 1) {
-      const value = (hash >> (i * 8)) & 0xff;
-      color += `00${value.toString(16)}`.substr(-2);
-    }
-    /* eslint-enable no-bitwise */
-
-    return color;
-  }
-
-  function stringAvatar(name) {
-    return {
-      sx: {
-        bgcolor: stringToColor(name)
-      },
-      children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`
-    };
-  }
   return (
-    <AppBar position="static">
+    <AppBar position="static" >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -127,15 +100,14 @@ const Navbar = ({ name }) => {
             <Link to="/dashboard" style={{textDecoration:'none',color:'white'}}>LEVEL UP Responsive</Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}></Box>
-
           
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }} mr={4}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }}} mr={5}>
             <Button onClick={handleSignOut} sx={{ my: 2, color: 'white', display: 'block' }}>
               Logout
             </Button>
             </Box>
             <Box mr={4}>
-            <Avatar {...stringAvatar(name)} />
+            <Avatar {...stringAvatar(name)}/>
             </Box>
           
         </Toolbar>

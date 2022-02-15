@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import SectionCard from '../Card/Card';
 //import Card from '../Card/Card';
 
-const titles = ['Jobs','Internships','Higher Education', "Study Material", "Other Opportunities" ]
+const titles = ['Jobs','Internships','Higher Education', "Study Material", "Other Opportunities"]
 
 export default function StudentDashboard() {
   return (
@@ -16,13 +16,15 @@ export default function StudentDashboard() {
         columns={{ xs: 2, sm: 8, md: 12 }}
         alignItems="center">
       
-        {titles.map((title, index) => (
+        {titles.map((title, index) => {
+          const url = title.replace(' ', '-').toLowerCase();
+          return (
           <Grid item xs={2} sm={4} md={4} key={index}>
-            <Link to={`/${title}`} style={{textDecoration:'none'}}>
+            <Link to={`/${url}`} style={{textDecoration:'none'}}>
             <SectionCard title={title} />
             </Link>
           </Grid>
-        ))}
+        )})}
       </Grid>
     </Box>
   );
