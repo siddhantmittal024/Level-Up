@@ -87,7 +87,7 @@ const Navbar = ({ name }) => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Logout</Typography>
+                <Typography textAlign="center" onClick={handleSignOut}>Logout</Typography>
               </MenuItem>
             </Menu>
           </Box>
@@ -102,7 +102,7 @@ const Navbar = ({ name }) => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}></Box>
           
           <Box sx={{ display: { xs: 'none', md: 'flex' }}} mr={5}>
-            <Button onClick={handleSignOut} sx={{ my: 2, color: 'white', display: 'block' }}>
+            <Button onClick={handleSignOut} sx={{ my: 2, color: 'white', display: 'block',fontSize:18, fontWeight:'bold' }}>
               Logout
             </Button>
             </Box>
