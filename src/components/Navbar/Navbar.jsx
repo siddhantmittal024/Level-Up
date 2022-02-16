@@ -20,7 +20,7 @@ import { stringAvatar } from '../../utils/stringAvatar';
 
 const Navbar = ({ name }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
-  
+
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -32,7 +32,7 @@ const Navbar = ({ name }) => {
         console.log('user is signed out');
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
       });
   };
 
@@ -45,16 +45,21 @@ const Navbar = ({ name }) => {
   };
 
   return (
-    <AppBar position="static" >
+    <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' }}}
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            <Link to="/dashboard" style={{textDecoration:'none',color:'white'}}>LEVEL UP</Link>
+            <Link
+              to="/dashboard"
+              style={{ textDecoration: 'none', color: 'white' }}
+            >
+              LEVEL UP
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
@@ -87,7 +92,9 @@ const Navbar = ({ name }) => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center" onClick={handleSignOut}>Logout</Typography>
+                <Typography textAlign="center" onClick={handleSignOut}>
+                  Logout
+                </Typography>
               </MenuItem>
             </Menu>
           </Box>
@@ -97,19 +104,32 @@ const Navbar = ({ name }) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            <Link to="/dashboard" style={{textDecoration:'none',color:'white'}}>LEVEL UP</Link>
+            <Link
+              to="/dashboard"
+              style={{ textDecoration: 'none', color: 'white' }}
+            >
+              LEVEL UP
+            </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}></Box>
-          
-          <Box sx={{ display: { xs: 'none', md: 'flex' }}} mr={5}>
-            <Button onClick={handleSignOut} sx={{ my: 2, color: 'white', display: 'block',fontSize:18, fontWeight:'bold' }}>
+
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }} mr={5}>
+            <Button
+              onClick={handleSignOut}
+              sx={{
+                my: 2,
+                color: 'white',
+                display: 'block',
+                fontSize: 18,
+                fontWeight: 'bold'
+              }}
+            >
               Logout
             </Button>
-            </Box>
-            <Box mr={4}>
-            <Avatar {...stringAvatar(name)}/>
-            </Box>
-          
+          </Box>
+          <Box mr={4}>
+            <Avatar {...stringAvatar(name)} />
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>

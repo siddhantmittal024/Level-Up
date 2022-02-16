@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const HigherEducation = () => {
-  return (
-    <div>HIGHER EDUCATION DETAILS SECTION</div>
-  )
-}
+  return <div>HIGHER EDUCATION DETAILS SECTION</div>;
+};
 
 export default HigherEducation;

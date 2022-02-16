@@ -16,6 +16,8 @@ import Internships from './components/Internships';
 import OtherOpportunities from './components/OtherOpportunities';
 import HigherEducation from './components/HigherEducation/HigherEducation';
 import StudyMaterial from './components/StudyMaterial/StudyMaterial';
+import OffCampusJobs from './components/Jobs/OffCampusJobs';
+import OnCampusJobs from './components/Jobs/OnCampusJobs';
 
 function App() {
   const dispatch = useDispatch();
@@ -67,6 +69,17 @@ function App() {
               path="/study-material"
               component={StudyMaterial}
             />
+            <PrivateRoute
+              exact
+              path="/jobs/off-campus"
+              component={OffCampusJobs}
+            />
+             <PrivateRoute
+              exact
+              path="/jobs/on-campus"
+              component={OnCampusJobs}
+            />
+            
           </Switch>
         </div>
       </Router>
