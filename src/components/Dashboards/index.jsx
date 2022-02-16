@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import AdminDashboard from '../Dashboards/Admin/Admin-Dashboard';
 import StudentDashboard from '../Dashboards/Student/Student-Dashboard';
 
-import CoordinatorDashboard from '../Dashboards/Coodinator/Coodinator-Dashboard';
+import CoordinatorDashboard from './Coordinator/Coordinator-Dashboard';
 import { Container } from '@mui/material';
 
 const Dashboard = () => {
