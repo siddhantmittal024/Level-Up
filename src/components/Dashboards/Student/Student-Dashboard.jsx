@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
-import SectionCard from '../SectionCard/SectionCard';
+import SectionCard from '../../SectionCard/SectionCard';
 //import Card from '../Card/Card';
 
 const titles = ['Jobs','Internships','Higher Education', "Study Material", "Other Opportunities"]

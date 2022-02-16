@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import AdminDashboard from '../Admin/Admin-Dashboard';
-import StudentDashboard from '../Student/Student-Dashboard';
+import AdminDashboard from '../Dashboards/Admin/Admin-Dashboard';
+import StudentDashboard from '../Dashboards/Student/Student-Dashboard';
 
-import CoordinatorDashboard from '../Coodinator/Coodinator-Dashboard';
+import CoordinatorDashboard from '../Dashboards/Coodinator/Coodinator-Dashboard';
 import { Container } from '@mui/material';
 
 const Dashboard = () => {

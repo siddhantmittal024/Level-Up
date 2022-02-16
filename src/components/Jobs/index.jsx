@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
 import SectionCard from '../SectionCard/SectionCard';
-import { Box, Container } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 
 const Jobs = () => {
   const titles = ['On Campus', 'Off Campus'];
@@ -17,7 +17,7 @@ const Jobs = () => {
             const url = title.replace(' ', '-').toLowerCase();
             return (
               <Grid item xs={2} sm={4} md={6} key={index} align="center">
-                <Link to={`/${url}`} style={{ textDecoration: 'none' }}>
+                <Link to={`/jobs/${url}`} style={{ textDecoration: 'none' }}>
                   <SectionCard title={title} height={200}/>
                 </Link>
               </Grid>
