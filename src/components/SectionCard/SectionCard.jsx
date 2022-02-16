@@ -6,16 +6,16 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 //import { useHistory } from 'react-router-dom';
 
-const SectionCard = ({title})=> {
+const SectionCard = ({title,height})=> {
   //const history = useHistory();
   return (
     <Card sx={{ maxWidth: 345 }} >
       <CardActionArea >
         <CardMedia
           component="img"
-          height="140"
+          height={height || "145"}
           //image="/static/images/cards/contemplative-reptile.jpg"
-          alt="jobs "
+          alt={title}
         />
         <CardContent >
           <Typography gutterBottom variant="h5" component="div" textAlign="center" textTransform="uppercase">

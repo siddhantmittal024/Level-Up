@@ -97,7 +97,7 @@ const Navbar = ({ name }) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            <Link to="/dashboard" style={{textDecoration:'none',color:'white'}}>LEVEL UP Responsive</Link>
+            <Link to="/dashboard" style={{textDecoration:'none',color:'white'}}>LEVEL UP</Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}></Box>
           
