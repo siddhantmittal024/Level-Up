@@ -13,11 +13,14 @@ import { PrivateRoute } from './components/routers/PrivateRoute';
 import Jobs from './components/Jobs';
 import Navbar from './components/Navbar/Navbar';
 import Internships from './components/Internships';
+import OtherOpportunities from './components/OtherOpportunities';
+import HigherEducation from './components/HigherEducation/HigherEducation';
+import StudyMaterial from './components/StudyMaterial/StudyMaterial';
 
 function App() {
   const dispatch = useDispatch();
   const [isAuthenticated, setAuthenticated] = useState(true);
-  const [userName,setUserName] = useState(null);
+  const [userName, setUserName] = useState(null);
   //const userName = useSelector(state => state.users.currentUser.name);
 
   useEffect(() => {
@@ -35,30 +38,38 @@ function App() {
   }, []);
 
   return (
-
     <>
-    <Router>
-    {userName ? (<Navbar name={userName}/>) : null}
-      <div className="App">
-        <Switch>
-          <PublicRoute exact path="/" component={Homepage} />
-          <PrivateRoute
-            exact
-            path="/dashboard"
-            component={Dashboard}
-            isAuthenticated={isAuthenticated}
-          />
-          <PrivateRoute
-          exact
-          path="/jobs"
-          component={Jobs}/>
-           <PrivateRoute
-          exact
-          path="/internships"
-          component={Internships}/>
-        </Switch>
-      </div>
-    </Router>
+      <Router>
+        {userName ? <Navbar name={userName} /> : null}
+        <div className="App">
+          <Switch>
+            <PublicRoute exact path="/" component={Homepage} />
+            <PrivateRoute
+              exact
+              path="/dashboard"
+              component={Dashboard}
+              isAuthenticated={isAuthenticated}
+            />
+            <PrivateRoute exact path="/jobs" component={Jobs} />
+            <PrivateRoute exact path="/internships" component={Internships} />
+            <PrivateRoute
+              exact
+              path="/other-opportunities"
+              component={OtherOpportunities}
+            />
+            <PrivateRoute
+              exact
+              path="/higher-education"
+              component={HigherEducation}
+            />
+            <PrivateRoute
+              exact
+              path="/study-material"
+              component={StudyMaterial}
+            />
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 }
