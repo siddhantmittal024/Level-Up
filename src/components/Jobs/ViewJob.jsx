@@ -26,11 +26,31 @@ const ViewJob = () => {
   if (job !== null) {
     return (
       <Container align="center">
-        <Box>
-          <Link to="/jobs/off-campus">
-            <Button>Back</Button>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Link
+            to="/jobs/off-campus"
+            style={{
+              textDecoration: 'none',
+              color: 'black',
+              marginRight: 0
+            }}
+          >
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ marginRight: 0, width: '100px', marginRight: '10px' }}
+            >
+             {`Back`}
+            </Button>
           </Link>
-          <Typography variant="h3" gutterBottom component="div" mt={4}>
+          <Typography
+            variant="h3"
+            gutterBottom
+            component="div"
+            mt={4}
+            align="center"
+            width="100%"
+          >
             Off-Campus Jobs
           </Typography>
         </Box>

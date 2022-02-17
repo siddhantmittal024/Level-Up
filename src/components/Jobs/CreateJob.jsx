@@ -12,6 +12,7 @@ import { useHistory } from 'react-router-dom';
 import { collection, doc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase/firebase.util';
 import MuiAlert from '@mui/material/Alert';
+import { Link } from 'react-router-dom';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -71,98 +72,118 @@ const CreateJob = () => {
   return (
     <>
       <Container align="center" sx={{ marginTop: '50px' }}>
-        <Typography variant="h4" gutterBottom component="div">
-          Add Job
-        </Typography>
-        <Box
-          component="form"
-          sx={{
-            '& > :not(style)': { m: 1, width: '25ch' },
-            width: '500px',
-            maxWidth: '100%'
-          }}
-          noValidate
-          autoComplete="off"
-          onSubmit={onSubmit}
-        >
-          <TextField
-            required
-            id="outlined-required"
-            label="Tagline"
-            defaultValue=""
-            name="tagline"
-            onChange={handleChange}
-          />
-          <TextField
-            required
-            id="outlined-required"
-            label="Company Name"
-            defaultValue=""
-            name="companyName"
-            onChange={handleChange}
-          />
-          <TextField
-            required
-            id="outlined-required"
-            label="Position"
-            defaultValue=""
-            name="position"
-            onChange={handleChange}
-          />
-          <TextField
-            id="outlined-required"
-            label="Batch"
-            defaultValue=""
-            name="batch"
-            onChange={handleChange}
-          />
-
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <DateTimePicker
-              label="Last Date to Apply"
-              value={values.lastDateToApply}
-              name="lastDateToApply"
-              onChange={handleDateChange}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
-          <TextField
-            required
-            id="outlined-required"
-            label="Link"
-            defaultValue=""
-            name="link"
-            onChange={handleChange}
-          />
-          <TextField
-            id="fullWidth"
-            label="Description"
-            multiline
-            rows={3}
-            maxRows={15}
-            sx={{ minWidth: '90%' }}
-            name="description"
-            //value={value}
-            onChange={handleChange}
-          />
-          <Button
-            onClick={onSubmit}
-            variant="contained"
-            color="primary"
-            style={{ color: 'white' }}
+        <Box sx={{ display: 'flex', alignItems: 'center',width:'80%' }}>
+          <Link
+            to="/jobs/off-campus"
+            style={{
+              textDecoration: 'none',
+              color: 'black',
+              marginRight: 0
+            }}
           >
-            Submit
-          </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ marginRight: 0, width: '100px', marginRight: '10px' }}
+            >
+              {`Back`}
+            </Button>
+          </Link>
+          <Typography variant="h4" gutterBottom component="div" width="75%" align="center">
+            Add Job
+          </Typography>
         </Box>
-        {showAlert ? (
-          <Alert
-            severity="error"
-            sx={{ width: 260, marginTop: 5 }}
-            onClose={() => setShowAlert(false)}
+        <>
+          <Box
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' },
+              width: '500px',
+              maxWidth: '100%'
+            }}
+            noValidate
+            autoComplete="off"
+            onSubmit={onSubmit}
           >
-            Please fill the required fields!
-          </Alert>
-        ) : null}
+            <TextField
+              required
+              id="outlined-required"
+              label="Tagline"
+              defaultValue=""
+              name="tagline"
+              onChange={handleChange}
+            />
+            <TextField
+              required
+              id="outlined-required"
+              label="Company Name"
+              defaultValue=""
+              name="companyName"
+              onChange={handleChange}
+            />
+            <TextField
+              required
+              id="outlined-required"
+              label="Position"
+              defaultValue=""
+              name="position"
+              onChange={handleChange}
+            />
+            <TextField
+              id="outlined-required"
+              label="Batch"
+              defaultValue=""
+              name="batch"
+              onChange={handleChange}
+            />
+
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DateTimePicker
+                label="Last Date to Apply"
+                value={values.lastDateToApply}
+                name="lastDateToApply"
+                onChange={handleDateChange}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+            <TextField
+              required
+              id="outlined-required"
+              label="Link"
+              defaultValue=""
+              name="link"
+              onChange={handleChange}
+            />
+            <TextField
+              id="fullWidth"
+              label="Description"
+              multiline
+              rows={3}
+              maxRows={15}
+              sx={{ minWidth: '90%' }}
+              name="description"
+              //value={value}
+              onChange={handleChange}
+            />
+            <Button
+              onClick={onSubmit}
+              variant="contained"
+              color="primary"
+              style={{ color: 'white' }}
+            >
+              Submit
+            </Button>
+          </Box>
+          {showAlert ? (
+            <Alert
+              severity="error"
+              sx={{ width: 260, marginTop: 5 }}
+              onClose={() => setShowAlert(false)}
+            >
+              Please fill the required fields!
+            </Alert>
+          ) : null}
+        </>
       </Container>
     </>
   );
