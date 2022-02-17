@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Container, Box, Typography, Button } from '@mui/material';
 import { db } from '../../firebase/firebase.util';
@@ -14,10 +14,12 @@ const ViewJob = () => {
 
   const jobRef = doc(db, 'off-campus-jobs', id);
 
-  getDoc(jobRef).then((doc) => {
-    setJob(doc.data());
-    //console.log(doc.data());
-  });
+  useEffect(() => {
+    getDoc(jobRef).then((doc) => {
+      setJob(doc.data());
+      //console.log(doc.data());
+    });
+  }, []);
 
   //console.log(job);
 

@@ -11,6 +11,11 @@ import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
 import { collection, doc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase/firebase.util';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const CreateJob = () => {
   const auth = getAuth();
@@ -30,6 +35,7 @@ const CreateJob = () => {
     userID: user.uid
   };
   const [values, setValues] = useState(initialValues);
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -42,13 +48,23 @@ const CreateJob = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    console.log(values);
-    try {
-      const jobRef = doc(collection(db, 'off-campus-jobs'));
-      await setDoc(jobRef, values);
-      history.push('/jobs/off-campus');
-    } catch (err) {
-      console.log('Error:', err);
+    //console.log(values);
+    if (
+      values.tagline === '' ||
+      values.companyName === '' ||
+      values.position === '' ||
+      values.link === ''
+    ) {
+      //alert('Please fill all the fields');
+      setShowAlert(true);
+    } else {
+      try {
+        const jobRef = doc(collection(db, 'off-campus-jobs'));
+        await setDoc(jobRef, values);
+        history.push('/jobs/off-campus');
+      } catch (err) {
+        console.log('Error:', err);
+      }
     }
   };
 
@@ -138,6 +154,15 @@ const CreateJob = () => {
             Submit
           </Button>
         </Box>
+        {showAlert ? (
+          <Alert
+            severity="error"
+            sx={{ width: 260, marginTop: 5 }}
+            onClose={() => setShowAlert(false)}
+          >
+            Please fill the required fields!
+          </Alert>
+        ) : null}
       </Container>
     </>
   );

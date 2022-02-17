@@ -222,12 +222,12 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
               color: 'black',
               marginRight: 0
             }}
-            to={'/jobs/add-job'}
+            to={'/jobs/off-campus/add-job'}
           >
             <Button
               variant="contained"
               color="primary"
-              sx={{ marginRight: 0, width: '100px',marginRight: '10px' }}
+              sx={{ marginRight: 0, width: '100px', marginRight: '10px' }}
             >
               Add Job
             </Button>

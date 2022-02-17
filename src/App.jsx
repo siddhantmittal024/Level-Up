@@ -71,27 +71,29 @@ function App() {
               path="/study-material"
               component={StudyMaterial}
             />
+
+            <PrivateRoute
+              exact
+              path="/jobs/on-campus"
+              component={OnCampusJobs}
+            />
+            
             <PrivateRoute
               exact
               path="/jobs/off-campus"
               component={OffCampusJobs}
             />
+
             <PrivateRoute
               exact
-              path="/jobs/on-campus"
-              component={OnCampusJobs}
+              path="/jobs/off-campus/add-job"
+              component={CreateJob}
             />
 
             <PrivateRoute
               exact
               path="/jobs/off-campus/:id"
               component={ViewJob}
-            />
-
-            <PrivateRoute
-              exact
-              path="/jobs/add-job"
-              component={CreateJob}
             />
           </Switch>
         </div>
