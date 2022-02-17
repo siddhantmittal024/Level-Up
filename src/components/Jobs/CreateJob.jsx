@@ -84,7 +84,7 @@ const CreateJob = () => {
             <Button
               variant="contained"
               color="primary"
-              sx={{ marginRight: 0, width: '100px', marginRight: '10px' }}
+              sx={{  width: '100px'}}
             >
               {`Back`}
             </Button>
