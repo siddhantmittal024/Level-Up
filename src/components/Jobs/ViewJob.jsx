@@ -70,14 +70,16 @@ const ViewJob = () => {
               width="100%"
             >
               <Box width="100%">
-                <Typography my={2}>Company: {job.company}</Typography>
+                <Typography my={2}>Company: {job.companyName}</Typography>
                 <Typography>Batch: {job.batch}</Typography>
               </Box>
               <Box width="100%" m="auto">
                 <Typography my={2}>Position: {job.position}</Typography>
                 <Typography>
                   Last Date:
-                  {job.last_date.toDate().toLocaleDateString('en', options)}
+                  {job.lastDateToApply
+                    .toDate()
+                    .toLocaleDateString('en', options)}
                 </Typography>
               </Box>
               <Typography my={2}>Description: {job.description}</Typography>
