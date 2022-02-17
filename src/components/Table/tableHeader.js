@@ -4,7 +4,7 @@ export const offCampusJobsHeader = [
     label: 'Tagline'
   },
   {
-    id: 'company',
+    id: 'companyName',
     label: 'Company'
   },
   {
@@ -16,7 +16,7 @@ export const offCampusJobsHeader = [
     label: 'Batch'
   },
   {
-    id: 'last_date',
+    id: 'lastDateToApply',
     label: 'Last Date'
   }
 ];
