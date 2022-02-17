@@ -125,7 +125,7 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
       setRows(jobs);
     } else {
       let filtered = jobs.filter((job) => {
-        return job.company.toLowerCase().includes(searched.toLowerCase());
+        return job.companyName.toLowerCase().includes(searched.toLowerCase());
       });
       setRows(filtered);
     }
