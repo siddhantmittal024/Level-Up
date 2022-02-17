@@ -18,6 +18,8 @@ import HigherEducation from './components/HigherEducation/HigherEducation';
 import StudyMaterial from './components/StudyMaterial/StudyMaterial';
 import OffCampusJobs from './components/Jobs/OffCampusJobs';
 import OnCampusJobs from './components/Jobs/OnCampusJobs';
+import CreateJob from './components/Jobs/CreateJob';
+import ViewJob from './components/Jobs/ViewJob';
 
 function App() {
   const dispatch = useDispatch();
@@ -74,12 +76,23 @@ function App() {
               path="/jobs/off-campus"
               component={OffCampusJobs}
             />
-             <PrivateRoute
+            <PrivateRoute
               exact
               path="/jobs/on-campus"
               component={OnCampusJobs}
             />
-            
+
+            <PrivateRoute
+              exact
+              path="/jobs/off-campus/:id"
+              component={ViewJob}
+            />
+
+            <PrivateRoute
+              exact
+              path="/jobs/add-job"
+              component={CreateJob}
+            />
           </Switch>
         </div>
       </Router>

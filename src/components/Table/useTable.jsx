@@ -108,7 +108,7 @@ EnhancedTableHead.propTypes = {
 const EnhancedTable = ({ jobs, tableHeader }) => {
   const auth = getAuth();
   const user = auth.currentUser;
-  console.log(user.uid);
+  //console.log(user.uid);
 
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('last_date');
@@ -148,7 +148,11 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
 
   const printEditIcon = (userID) => {
     if (userID === user.uid) {
-      return <EditIcon sx={{ color: '#1976D2' }} />;
+      return (
+        <Tooltip title="Edit">
+          <EditIcon sx={{ color: '#1976D2' }} />
+        </Tooltip>
+      );
     } else {
       return null;
     }
@@ -156,7 +160,11 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
 
   const printDeleteIcon = (userID) => {
     if (userID === user.uid) {
-      return <DeleteIcon sx={{ color: 'red' }} />;
+      return (
+        <Tooltip title="Delete">
+          <DeleteIcon sx={{ color: 'red' }} />
+        </Tooltip>
+      );
     } else {
       return null;
     }
@@ -208,11 +216,27 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
               sx={{ marginTop: '12px', height: '30px', width: '30px' }}
             />
           </Box>
-          <Tooltip title="Filter list">
+          <Link
+            style={{
+              textDecoration: 'none',
+              color: 'black',
+              marginRight: 0
+            }}
+            to={'/jobs/add-job'}
+          >
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ marginRight: 0, width: '100px',marginRight: '10px' }}
+            >
+              Add Job
+            </Button>
+          </Link>
+          {/* <Tooltip title="Filter list">
             <IconButton>
               <FilterListIcon />
             </IconButton>
-          </Tooltip>
+          </Tooltip> */}
         </Toolbar>
         <TableContainer>
           <Table
@@ -235,24 +259,26 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
                   return (
                     <TableRow hover key={job.id}>
                       <TableCell>{job.tagline}</TableCell>
-                      <TableCell>{job.company}</TableCell>
+                      <TableCell>{job.companyName}</TableCell>
                       <TableCell>{job.position}</TableCell>
                       <TableCell>{job.batch}</TableCell>
                       <TableCell>
-                        {job.last_date
+                        {job.lastDateToApply
                           .toDate()
                           .toLocaleDateString('en', options)}
                       </TableCell>
                       <TableCell>
                         <Link
-                          to={`/off-campus-jobs/${job.id}`}
+                          to={`/jobs/off-campus/${job.id}`}
                           style={{
                             textDecoration: 'none',
                             width: '100%',
                             color: 'black'
                           }}
                         >
-                          <PageviewOutlinedIcon />
+                          <Tooltip title="View Job">
+                            <PageviewOutlinedIcon />
+                          </Tooltip>
                         </Link>
                       </TableCell>
 
