@@ -16,7 +16,7 @@ export const offCampusJobsHeader = [
     label: 'Batch'
   },
   {
-    id: 'deadline',
+    id: 'last_date',
     label: 'Last Date'
   }
 ];

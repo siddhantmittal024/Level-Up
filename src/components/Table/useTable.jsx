@@ -12,13 +12,22 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Toolbar from '@mui/material/Toolbar';
 import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
 import Tooltip from '@mui/material/Tooltip';
 import FilterListIcon from '@mui/icons-material/FilterList';
-import { FormControl, Input, TextField, Typography } from '@mui/material';
+import {
+  Button,
+  FormControl,
+  Input,
+  TextField,
+  Typography
+} from '@mui/material';
 import { visuallyHidden } from '@mui/utils';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
+import EditIcon from '@mui/icons-material/Edit';
+import PageviewOutlinedIcon from '@mui/icons-material/PageviewOutlined';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { getAuth } from 'firebase/auth';
 
 const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
@@ -81,6 +90,10 @@ function EnhancedTableHead(props) {
             </TableSortLabel>
           </TableCell>
         ))}
+
+        <TableCell />
+        <TableCell />
+        <TableCell />
       </TableRow>
     </TableHead>
   );
@@ -93,8 +106,12 @@ EnhancedTableHead.propTypes = {
 };
 
 const EnhancedTable = ({ jobs, tableHeader }) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  console.log(user.uid);
+
   const [order, setOrder] = useState('asc');
-  const [orderBy, setOrderBy] = useState('calories');
+  const [orderBy, setOrderBy] = useState('last_date');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
@@ -127,6 +144,22 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
+  };
+
+  const printEditIcon = (userID) => {
+    if (userID === user.uid) {
+      return <EditIcon sx={{ color: '#1976D2' }} />;
+    } else {
+      return null;
+    }
+  };
+
+  const printDeleteIcon = (userID) => {
+    if (userID === user.uid) {
+      return <DeleteIcon sx={{ color: 'red' }} />;
+    } else {
+      return null;
+    }
   };
 
   // Avoid a layout jump when reaching the last page with empty rows.
@@ -165,7 +198,7 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
                   margin: 1,
                   height: '5ch'
                 }}
-                placeholder="Search"
+                placeholder="Search Company"
                 inputProps={{ 'aria-label': 'search' }}
                 onChange={requestSearch}
               />
@@ -198,6 +231,7 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((job, index) => {
+                  //console.log(typeof job.userID);
                   return (
                     <TableRow hover key={job.id}>
                       <TableCell>{job.tagline}</TableCell>
@@ -209,6 +243,22 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
                           .toDate()
                           .toLocaleDateString('en', options)}
                       </TableCell>
+                      <TableCell>
+                        <Link
+                          to={`/off-campus-jobs/${job.id}`}
+                          style={{
+                            textDecoration: 'none',
+                            width: '100%',
+                            color: 'black'
+                          }}
+                        >
+                          <PageviewOutlinedIcon />
+                        </Link>
+                      </TableCell>
+
+                      <TableCell>{printDeleteIcon(job.userID)}</TableCell>
+
+                      <TableCell>{printEditIcon(job.userID)}</TableCell>
                     </TableRow>
                   );
                 })}
