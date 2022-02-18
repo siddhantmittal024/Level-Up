@@ -114,38 +114,39 @@ EnhancedTableHead.propTypes = {
 const EnhancedTable = ({ tableHeader }) => {
   const auth = getAuth();
   const user = auth.currentUser;
-  const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('last_date');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [rows, setRows] = useState(jobs);
+  const [rows, setRows] = useState([]);
 
   const jobsRef = collection(db, 'off-campus-jobs');
 
+  const getJobs = async () => {
+    try {
+      const jobsData = await getDocs(jobsRef);
+      setRows(jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+    }
+  };
+
   useEffect(() => {
     setLoading(true);
-    const getJobs = async () => {
-      try {
-        const jobsData = await getDocs(jobsRef);
-        setJobs(jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        setRows(jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-      }
-    };
     getJobs();
-  }, [jobs]);
+  }, []);
+
+  //console.log(jobs);
 
   const requestSearch = (e) => {
     let searched = e.target.value;
     if (searched.value === '') {
-      setRows(jobs);
+      setRows(rows);
     } else {
-      let filtered = jobs.filter((job) => {
+      let filtered = rows.filter((job) => {
         return job.companyName.toLowerCase().includes(searched.toLowerCase());
       });
       setRows(filtered);
@@ -169,11 +170,11 @@ const EnhancedTable = ({ tableHeader }) => {
 
   const handleDelete = async (e, jobId) => {
     e.preventDefault();
-    console.log(jobId);
+    //console.log(jobId);
     setLoading(true);
     deleteDoc(doc(db, 'off-campus-jobs', jobId))
-      .then(() => {
-        setLoading(false);
+      .then(async () => {
+        getJobs();
       })
       .catch((err) => {
         console.log(err);
@@ -218,7 +219,7 @@ const EnhancedTable = ({ tableHeader }) => {
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - jobs.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
   return (
     <Box sx={{ width: '100%' }} mt={10}>
@@ -294,7 +295,7 @@ const EnhancedTable = ({ tableHeader }) => {
               order={order}
               orderBy={orderBy}
               onRequestSort={handleRequestSort}
-              rowCount={jobs.length}
+              rowCount={rows.length}
               tableHeader={tableHeader}
             />
             <TableBody>
@@ -351,7 +352,7 @@ const EnhancedTable = ({ tableHeader }) => {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={jobs.length}
+          count={rows.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
