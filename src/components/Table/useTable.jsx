@@ -206,11 +206,12 @@ const EnhancedTable = ({ tableHeader }) => {
   const printDeleteIcon = (userID, jobID) => {
     if (userID === user.uid) {
       return (
-        <Button onClick={(e) => handleDelete(e, jobID)}>
-          <Tooltip title="Delete">
-            <DeleteIcon sx={{ color: 'red' }} />
-          </Tooltip>
-        </Button>
+        <Tooltip title="Delete">
+          <DeleteIcon
+            sx={{ color: 'red', cursor: 'pointer' }}
+            onClick={(e) => handleDelete(e, jobID)}
+          />
+        </Tooltip>
       );
     } else {
       return null;
