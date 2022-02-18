@@ -227,7 +227,7 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
             <Button
               variant="contained"
               color="primary"
-              sx={{ marginRight: 0, width: '100px', marginRight: '10px' }}
+              sx={{ width: '100px', marginRight: '10px' }}
             >
               Add Job
             </Button>
@@ -291,7 +291,7 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
               {emptyRows > 0 && (
                 <TableRow
                   style={{
-                    height: (dense ? 33 : 53) * emptyRows
+                    height: 53 * emptyRows
                   }}
                 >
                   <TableCell colSpan={6} />
