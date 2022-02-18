@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import { onAuthStateChanged, getAuth } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { getCurrentUserData } from './redux/userSlice';
 import { authentication } from './firebase/firebase.util';
@@ -20,6 +20,7 @@ import OffCampusJobs from './components/Jobs/OffCampusJobs';
 import OnCampusJobs from './components/Jobs/OnCampusJobs';
 import CreateJob from './components/Jobs/CreateJob';
 import ViewJob from './components/Jobs/ViewJob';
+import UpdateJob from './components/Jobs/UpdateJob';
 
 function App() {
   const dispatch = useDispatch();
@@ -77,7 +78,7 @@ function App() {
               path="/jobs/on-campus"
               component={OnCampusJobs}
             />
-            
+
             <PrivateRoute
               exact
               path="/jobs/off-campus"
@@ -88,6 +89,12 @@ function App() {
               exact
               path="/jobs/off-campus/add-job"
               component={CreateJob}
+            />
+
+            <PrivateRoute
+              exact
+              path="/jobs/off-campus/update/:id"
+              component={UpdateJob}
             />
 
             <PrivateRoute

@@ -1,33 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getAuth } from 'firebase/auth';
+import { doc, deleteDoc, getDocs, collection } from 'firebase/firestore';
+import { db } from '../../firebase/firebase.util';
+import { Link } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-import TableSortLabel from '@mui/material/TableSortLabel';
-import Toolbar from '@mui/material/Toolbar';
-import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
 import FilterListIcon from '@mui/icons-material/FilterList';
+
 import {
   Button,
   FormControl,
   Input,
-  TextField,
-  Typography
+  Typography,
+  Box,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TablePagination,
+  TableRow,
+  TableSortLabel,
+  Toolbar,
+  Paper,
+  Tooltip
 } from '@mui/material';
+
 import { visuallyHidden } from '@mui/utils';
 import SearchIcon from '@mui/icons-material/Search';
-import { Link } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 import PageviewOutlinedIcon from '@mui/icons-material/PageviewOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { getAuth } from 'firebase/auth';
+
+import LoadingPage from '../Loading/Loading';
 
 const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
@@ -105,22 +111,37 @@ EnhancedTableHead.propTypes = {
   orderBy: PropTypes.string.isRequired
 };
 
-const EnhancedTable = ({ jobs, tableHeader }) => {
+const EnhancedTable = ({ tableHeader }) => {
   const auth = getAuth();
   const user = auth.currentUser;
-  //console.log(user.uid);
-
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('last_date');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-
   const [rows, setRows] = useState(jobs);
-  //const [searched, setSearched] = useState('');
+
+  const jobsRef = collection(db, 'off-campus-jobs');
+
+  useEffect(() => {
+    setLoading(true);
+    const getJobs = async () => {
+      try {
+        const jobsData = await getDocs(jobsRef);
+        setJobs(jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        setRows(jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+      }
+    };
+    getJobs();
+  }, [jobs]);
 
   const requestSearch = (e) => {
     let searched = e.target.value;
-
     if (searched.value === '') {
       setRows(jobs);
     } else {
@@ -146,24 +167,49 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
     setPage(0);
   };
 
-  const printEditIcon = (userID) => {
+  const handleDelete = async (e, jobId) => {
+    e.preventDefault();
+    console.log(jobId);
+    setLoading(true);
+    deleteDoc(doc(db, 'off-campus-jobs', jobId))
+      .then(() => {
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  if (loading) {
+    return <LoadingPage />;
+  }
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
+
+  const printEditIcon = (userID, jobID) => {
     if (userID === user.uid) {
       return (
-        <Tooltip title="Edit">
-          <EditIcon sx={{ color: '#1976D2' }} />
-        </Tooltip>
+        <Link to={`/jobs/off-campus/update/${jobID}`}>
+          <Tooltip title="Edit">
+            <EditIcon sx={{ color: '#1976D2' }} />
+          </Tooltip>
+        </Link>
       );
     } else {
       return null;
     }
   };
 
-  const printDeleteIcon = (userID) => {
+  const printDeleteIcon = (userID, jobID) => {
     if (userID === user.uid) {
       return (
-        <Tooltip title="Delete">
-          <DeleteIcon sx={{ color: 'red' }} />
-        </Tooltip>
+        <Button onClick={(e) => handleDelete(e, jobID)}>
+          <Tooltip title="Delete">
+            <DeleteIcon sx={{ color: 'red' }} />
+          </Tooltip>
+        </Button>
       );
     } else {
       return null;
@@ -282,9 +328,11 @@ const EnhancedTable = ({ jobs, tableHeader }) => {
                         </Link>
                       </TableCell>
 
-                      <TableCell>{printDeleteIcon(job.userID)}</TableCell>
+                      <TableCell>
+                        {printDeleteIcon(job.userID, job.id)}
+                      </TableCell>
 
-                      <TableCell>{printEditIcon(job.userID)}</TableCell>
+                      <TableCell>{printEditIcon(job.userID, job.id)}</TableCell>
                     </TableRow>
                   );
                 })}

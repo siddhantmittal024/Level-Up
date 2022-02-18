@@ -1,7 +1,8 @@
+import { Container } from '@mui/material';
 import React from 'react';
 
 const LoadingPage = () => (
-  <div
+  <Container
     style={{
       height: '100vh',
       display: 'flex',
@@ -10,8 +11,11 @@ const LoadingPage = () => (
       justifyContent: 'center'
     }}
   >
-    <img style={{height: '6rem', width: '6rem'}} src="/src/images/loader.gif"></img>
-  </div>
+    <img
+      style={{ height: '6rem', width: '6rem' }}
+      src="/src/images/loader.gif"
+    ></img>
+  </Container>
 );
 
 export default LoadingPage;
