@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import { Container,Box,TextField,Typography,Button } from '@mui/material';
+import { Container, Box, TextField, Typography, Button } from '@mui/material';
 import { useHistory } from 'react-router-dom';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase/firebase.util';
@@ -27,11 +27,19 @@ const UpdateJob = () => {
   useEffect(() => {
     getDoc(jobRef).then((doc) => {
       //setJob(doc.data());
-      setValues(doc.data());
+      let lastDateApply = doc.data().lastDateToApply.toDate();
+      let createdAtDate = doc.data().createdAt.toDate();
+      setValues({
+        ...doc.data(),
+        createdAt: createdAtDate,
+        lastDateToApply: lastDateApply
+      });
       setLoading(false);
-      //console.log(doc.data());
+      //console.log(date);
     });
   }, []);
+
+  //setValues({...values, lastDateToApply: values.lastDateToApply.toDate()});
 
   if (loading) {
     return <LoadingPage />;
