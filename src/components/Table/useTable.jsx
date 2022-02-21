@@ -121,6 +121,7 @@ const EnhancedTable = ({ tableHeader }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [rows, setRows] = useState([]);
+  const [filteredRows, setFilteredRows] = useState([]);
 
   const jobsRef = collection(db, 'off-campus-jobs');
 
@@ -128,6 +129,9 @@ const EnhancedTable = ({ tableHeader }) => {
     try {
       const jobsData = await getDocs(jobsRef);
       setRows(jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setFilteredRows(
+        jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
       setLoading(false);
     } catch (error) {
       setError(error);
@@ -142,16 +146,21 @@ const EnhancedTable = ({ tableHeader }) => {
   //console.log(jobs);
 
   const requestSearch = (e) => {
+    //getJobs();
     let searched = e.target.value;
     if (searched.value === '') {
-      setRows(rows);
+      setFilteredRows(rows);
     } else {
       let filtered = rows.filter((job) => {
         return job.companyName.toLowerCase().includes(searched.toLowerCase());
       });
-      setRows(filtered);
+      setFilteredRows(filtered);
     }
   };
+
+  const getFilteredRows = () => {
+    
+  }
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -300,7 +309,7 @@ const EnhancedTable = ({ tableHeader }) => {
               tableHeader={tableHeader}
             />
             <TableBody>
-              {stableSort(rows, getComparator(order, orderBy))
+              {stableSort(getFilteredRows(), getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((job, index) => {
                   //console.log(typeof job.userID);
