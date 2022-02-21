@@ -121,7 +121,7 @@ const EnhancedTable = ({ tableHeader }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [rows, setRows] = useState([]);
-  const [filteredRows, setFilteredRows] = useState([]);
+  const [searched, setSearched] = useState('');
 
   const jobsRef = collection(db, 'off-campus-jobs');
 
@@ -129,9 +129,6 @@ const EnhancedTable = ({ tableHeader }) => {
     try {
       const jobsData = await getDocs(jobsRef);
       setRows(jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      setFilteredRows(
-        jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-      );
       setLoading(false);
     } catch (error) {
       setError(error);
@@ -146,21 +143,18 @@ const EnhancedTable = ({ tableHeader }) => {
   //console.log(jobs);
 
   const requestSearch = (e) => {
-    //getJobs();
-    let searched = e.target.value;
-    if (searched.value === '') {
-      setFilteredRows(rows);
-    } else {
-      let filtered = rows.filter((job) => {
-        return job.companyName.toLowerCase().includes(searched.toLowerCase());
-      });
-      setFilteredRows(filtered);
-    }
+    setSearched(e.target.value);
   };
 
   const getFilteredRows = () => {
-    
-  }
+    if (searched === '') {
+      return rows;
+    }
+
+    return rows.filter((job) =>
+      job.companyName.toLowerCase().includes(searched.toLowerCase())
+    );
+  };
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
