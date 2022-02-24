@@ -155,6 +155,7 @@ const EnhancedTable = ({ tableHeader }) => {
       setLoading(false);
     } catch (err) {
       console.log(err);
+      setError(err);
     }
   };
 
@@ -205,6 +206,7 @@ const EnhancedTable = ({ tableHeader }) => {
       })
       .catch((err) => {
         console.log(err);
+        setError(err);
       });
   };
 
