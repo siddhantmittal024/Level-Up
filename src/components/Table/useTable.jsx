@@ -125,16 +125,16 @@ const EnhancedTable = ({ tableHeader }) => {
 
   const jobsRef = collection(db, 'off-campus-jobs');
 
-  const getJobs = async () => {
-    try {
-      const jobsData = await getDocs(jobsRef);
-      setRows(jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    } catch (error) {
-      setError(error);
-    }
-  };
+  // const getJobs = async () => {
+  //   try {
+  //     const jobsData = await getDocs(jobsRef);
+  //     setRows(jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  //   } catch (error) {
+  //     setError(error);
+  //   }
+  // };
 
-  const deleteExpiredJobs = async () => {
+  const getJobs = async () => {
     //console.log('hello');
     try {
       const jobsData = await getDocs(jobsRef);
@@ -144,6 +144,10 @@ const EnhancedTable = ({ tableHeader }) => {
         const date = Date.parse(job.lastDateToApply.toDate());
         //console.log('DATE:', date);
         const today = new Date();
+
+        // if (date < today) {
+        //   await deleteDoc(doc(db, 'off-campus-jobs', job.id));
+        // }
         return date > today;
       });
       //console.log(expiredJobs);
@@ -157,7 +161,7 @@ const EnhancedTable = ({ tableHeader }) => {
   useEffect(() => {
     setLoading(true);
     //console.log('TODAY:', Date.now());
-    deleteExpiredJobs();
+    getJobs();
   }, []);
 
   //console.log('ROWSSS:', rows);
@@ -197,7 +201,7 @@ const EnhancedTable = ({ tableHeader }) => {
     setLoading(true);
     deleteDoc(doc(db, 'off-campus-jobs', jobId))
       .then(async () => {
-        deleteExpiredJobs();
+        getJobs();
       })
       .catch((err) => {
         console.log(err);
