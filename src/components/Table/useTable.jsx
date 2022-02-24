@@ -129,18 +129,38 @@ const EnhancedTable = ({ tableHeader }) => {
     try {
       const jobsData = await getDocs(jobsRef);
       setRows(jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      setLoading(false);
     } catch (error) {
       setError(error);
     }
   };
 
+  const deleteExpiredJobs = async () => {
+    //console.log('hello');
+    try {
+      const jobsData = await getDocs(jobsRef);
+      const jobs = jobsData.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      //console.log(jobs);
+      const expiredJobs = jobs.filter((job) => {
+        const date = Date.parse(job.lastDateToApply.toDate());
+        //console.log('DATE:', date);
+        const today = new Date();
+        return date > today;
+      });
+      //console.log(expiredJobs);
+      setRows(expiredJobs);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     setLoading(true);
-    getJobs();
+    //console.log('TODAY:', Date.now());
+    deleteExpiredJobs();
   }, []);
 
-  //console.log(jobs);
+  //console.log('ROWSSS:', rows);
 
   const requestSearch = (e) => {
     setSearched(e.target.value);
@@ -177,7 +197,7 @@ const EnhancedTable = ({ tableHeader }) => {
     setLoading(true);
     deleteDoc(doc(db, 'off-campus-jobs', jobId))
       .then(async () => {
-        getJobs();
+        deleteExpiredJobs();
       })
       .catch((err) => {
         console.log(err);
@@ -306,7 +326,7 @@ const EnhancedTable = ({ tableHeader }) => {
               {stableSort(getFilteredRows(), getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((job, index) => {
-                  //console.log(typeof job.userID);
+                  //console.log(Date.parse(job.lastDateToApply.toDate()));
                   return (
                     <TableRow hover key={job.id}>
                       <TableCell>{job.tagline}</TableCell>
