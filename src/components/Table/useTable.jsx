@@ -165,8 +165,6 @@ const EnhancedTable = ({ tableHeader }) => {
     getJobs();
   }, []);
 
-  //console.log('ROWSSS:', rows);
-
   const requestSearch = (e) => {
     setSearched(e.target.value);
   };
@@ -198,7 +196,6 @@ const EnhancedTable = ({ tableHeader }) => {
 
   const handleDelete = async (e, jobId) => {
     e.preventDefault();
-    //console.log(jobId);
     setLoading(true);
     deleteDoc(doc(db, 'off-campus-jobs', jobId))
       .then(async () => {
