@@ -161,7 +161,6 @@ const EnhancedTable = ({ tableHeader }) => {
 
   useEffect(() => {
     setLoading(true);
-    //console.log('TODAY:', Date.now());
     getJobs();
   }, []);
 
@@ -329,7 +328,6 @@ const EnhancedTable = ({ tableHeader }) => {
               {stableSort(getFilteredRows(), getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((job, index) => {
-                  //console.log(Date.parse(job.lastDateToApply.toDate()));
                   return (
                     <TableRow hover key={job.id}>
                       <TableCell>{job.tagline}</TableCell>
