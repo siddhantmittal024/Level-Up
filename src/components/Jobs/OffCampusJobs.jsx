@@ -1,7 +1,7 @@
 import React from 'react';
 import { Paper, Container } from '@mui/material';
-import EnhancedTable from '../Table/useTable';
-import { offCampusJobsHeader } from '../Table/tableHeader';
+import EnhancedTable from './Table/useTable';
+import { offCampusJobsHeader } from './Table/tableHeader';
 
 const tableHeader = offCampusJobsHeader;
 
