@@ -22,6 +22,9 @@ import CreateJob from './components/Jobs/Off-Campus-Jobs/CreateJob';
 import ViewJob from './components/Jobs/Off-Campus-Jobs/ViewJob';
 import UpdateJob from './components/Jobs/Off-Campus-Jobs/UpdateJob';
 import OffCampusInternships from './components/Internships/Off-Campus-Internships/OffCampusInternships';
+import CreateInternship from './components/Internships/Off-Campus-Internships/createInternship';
+import ViewInternship from './components/Internships/Off-Campus-Internships/ViewInternship';
+import UpdateInternship from './components/Internships/Off-Campus-Internships/UpdateInternship';
 
 function App() {
   const dispatch = useDispatch();
@@ -108,6 +111,24 @@ function App() {
               exact
               path="/internships/off-campus"
               component={OffCampusInternships}
+            />
+
+            <PrivateRoute
+              exact
+              path="/internships/off-campus/add-internship"
+              component={CreateInternship}
+            />
+
+            <PrivateRoute
+              exact
+              path="/internships/off-campus/:id"
+              component={ViewInternship}
+            />
+
+            <PrivateRoute
+              exact
+              path="/internships/off-campus/update/:id"
+              component={UpdateInternship}
             />
           </Switch>
         </div>

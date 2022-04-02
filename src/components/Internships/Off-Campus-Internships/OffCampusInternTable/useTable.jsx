@@ -138,7 +138,10 @@ const EnhancedTable = ({ tableHeader }) => {
     //console.log('hello');
     try {
       const internshipData = await getDocs(internsRef);
-      const jobs = internshipData.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      const jobs = internshipData.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id
+      }));
       //console.log(jobs);
       const expiredInterns = jobs.filter((intern) => {
         const date = Date.parse(intern.lastDateToApply.toDate());
@@ -300,7 +303,7 @@ const EnhancedTable = ({ tableHeader }) => {
             <Button
               variant="contained"
               color="primary"
-              sx={{ width: '100px', marginRight: '10px' }}
+              sx={{ width: '150px', marginRight: '10px' }}
             >
               Add Internship
             </Button>
@@ -358,7 +361,9 @@ const EnhancedTable = ({ tableHeader }) => {
                         {printDeleteIcon(intern.userID, intern.id)}
                       </TableCell>
 
-                      <TableCell>{printEditIcon(intern.userID, intern.id)}</TableCell>
+                      <TableCell>
+                        {printEditIcon(intern.userID, intern.id)}
+                      </TableCell>
                     </TableRow>
                   );
                 })}
