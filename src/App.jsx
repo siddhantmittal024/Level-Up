@@ -16,11 +16,11 @@ import Internships from './components/Internships';
 import OtherOpportunities from './components/OtherOpportunities';
 import HigherEducation from './components/HigherEducation/HigherEducation';
 import StudyMaterial from './components/StudyMaterial/StudyMaterial';
-import OffCampusJobs from './components/Jobs/OffCampusJobs';
+import OffCampusJobs from './components/Jobs/Off-Campus-Jobs/OffCampusJobs';
 import OnCampusJobs from './components/Jobs/OnCampusJobs';
-import CreateJob from './components/Jobs/CreateJob';
-import ViewJob from './components/Jobs/ViewJob';
-import UpdateJob from './components/Jobs/UpdateJob';
+import CreateJob from './components/Jobs/Off-Campus-Jobs/CreateJob';
+import ViewJob from './components/Jobs/Off-Campus-Jobs/ViewJob';
+import UpdateJob from './components/Jobs/Off-Campus-Jobs/UpdateJob';
 
 function App() {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
 import { doc, deleteDoc, getDocs, collection } from 'firebase/firestore';
-import { db } from '../../../firebase/firebase.util';
+import { db } from '../../../../firebase/firebase.util';
 import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
@@ -33,7 +33,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import PageviewOutlinedIcon from '@mui/icons-material/PageviewOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import LoadingPage from '../../Loading/Loading';
+import LoadingPage from '../../../Loading/Loading';
 
 const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
