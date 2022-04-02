@@ -21,6 +21,7 @@ import OnCampusJobs from './components/Jobs/OnCampusJobs';
 import CreateJob from './components/Jobs/Off-Campus-Jobs/CreateJob';
 import ViewJob from './components/Jobs/Off-Campus-Jobs/ViewJob';
 import UpdateJob from './components/Jobs/Off-Campus-Jobs/UpdateJob';
+import OffCampusInternships from './components/Internships/Off-Campus-Internships/OffCampusInternships';
 
 function App() {
   const dispatch = useDispatch();
@@ -101,6 +102,12 @@ function App() {
               exact
               path="/jobs/off-campus/:id"
               component={ViewJob}
+            />
+
+            <PrivateRoute
+              exact
+              path="/internships/off-campus"
+              component={OffCampusInternships}
             />
           </Switch>
         </div>
