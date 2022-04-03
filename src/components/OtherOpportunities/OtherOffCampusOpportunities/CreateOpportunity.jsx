@@ -18,7 +18,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const CreateOpportunity = () => {
+const CreateOtherOffCampusOpportunity = () => {
   const auth = getAuth();
   const user = auth.currentUser;
   const history = useHistory();
@@ -175,4 +175,4 @@ const CreateOpportunity = () => {
   );
 };
 
-export default CreateOpportunity;
+export default CreateOtherOffCampusOpportunity;
