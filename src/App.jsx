@@ -28,6 +28,7 @@ import UpdateInternship from './components/Internships/Off-Campus-Internships/Up
 import OtherOffCampusOpportunities from './components/OtherOpportunities/OtherOffCampusOpportunities/OtherOffCampusOpportunities';
 import CreateOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/CreateOpportunity';
 import UpdateOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/UpdateOpportunity';
+import ViewOtherOffCampusOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/ViewOpportunity';
 
 function App() {
   const dispatch = useDispatch();
@@ -149,7 +150,7 @@ function App() {
             <PrivateRoute
               exact
               path="/other-opportunities/off-campus/:id"
-              component={ViewInternship}
+              component={ViewOtherOffCampusOpportunity}
             />
 
             <PrivateRoute
