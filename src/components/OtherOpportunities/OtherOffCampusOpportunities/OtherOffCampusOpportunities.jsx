@@ -1,6 +1,6 @@
 import React from 'react';
 import { Paper, Container } from '@mui/material';
-import EnhancedTable from './OffCampusInternTable/useTable';
+import EnhancedTable from './Table/useTable';
 import { OtherOffCampusOpportunitiesHeader } from './Table/tableHeader';
 
 const tableHeader = OtherOffCampusOpportunitiesHeader;
