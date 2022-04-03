@@ -179,11 +179,9 @@ const EnhancedTable = ({ tableHeader }) => {
       return rows;
     }
 
-    return rows.filter((opportunity) =>{
-      //console.log(opportunity.opportunityType);
+    return rows.filter((opportunity) =>
       opportunity.opportunityType.toLowerCase().includes(searched.toLowerCase())
-    });
-    
+    );
   };
 
   const handleRequestSort = (event, property) => {
@@ -354,7 +352,7 @@ const EnhancedTable = ({ tableHeader }) => {
                             color: 'black'
                           }}
                         >
-                          <Tooltip title="View intern">
+                          <Tooltip title="View Opportunity">
                             <PageviewOutlinedIcon />
                           </Tooltip>
                         </Link>
