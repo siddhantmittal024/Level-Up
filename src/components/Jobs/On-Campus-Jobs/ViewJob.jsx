@@ -28,7 +28,7 @@ const ViewOnCampusJob = () => {
       <Container align="center">
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Link
-            to="/jobs/off-campus"
+            to="/jobs/on-campus"
             style={{
               textDecoration: 'none',
               color: 'black',
@@ -101,8 +101,12 @@ const ViewOnCampusJob = () => {
                 </Typography>
               </Box>
               <Typography my={2}>Description: {job.description}</Typography>
-              <Typography my={2}>Link: {job.link}</Typography>
+
+              <Typography my={2}>Person to Contact: {job.contact}</Typography>
+              <Typography my={2}>Branch: {job.branch}</Typography>
+              <Typography my={2}>GPA: {job.GPA}</Typography>
             </Box>
+            <Typography my={2}>Link: {job.link}</Typography>
           </Box>
         </Box>
       </Container>
