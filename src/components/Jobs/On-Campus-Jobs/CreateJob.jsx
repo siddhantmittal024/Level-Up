@@ -18,7 +18,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const CreateJob = () => {
+const CreateOnCampusJob = () => {
   const auth = getAuth();
   const user = auth.currentUser;
   const history = useHistory();
@@ -29,7 +29,7 @@ const CreateJob = () => {
     companyName: '',
     position: '',
     batch: '',
-    branch:'',
+    branch: '',
     contact: '',
     GPA: '',
     lastDateToApply: new Date(),
@@ -135,12 +135,38 @@ const CreateJob = () => {
               name="position"
               onChange={handleChange}
             />
+
             <TextField
+              required
               id="outlined-required"
               label="Batch"
               defaultValue=""
               name="batch"
               type="number"
+              onChange={handleChange}
+            />
+            <TextField
+              required
+              id="outlined-required"
+              label="Branch"
+              defaultValue=""
+              name="branch"
+              onChange={handleChange}
+            />
+            <TextField
+              required
+              id="outlined-required"
+              label="GPA"
+              defaultValue=""
+              name="GPA"
+              onChange={handleChange}
+            />
+            <TextField
+              required
+              id="outlined-required"
+              label="Person to Contact"
+              defaultValue=""
+              name="contact"
               onChange={handleChange}
             />
 
@@ -159,6 +185,7 @@ const CreateJob = () => {
               label="Link"
               defaultValue=""
               name="link"
+              sx={{ minWidth: '84%' }}
               onChange={handleChange}
             />
             <TextField
@@ -196,4 +223,4 @@ const CreateJob = () => {
   );
 };
 
-export default CreateJob;
+export default CreateOnCampusJob;

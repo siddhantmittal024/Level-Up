@@ -247,7 +247,7 @@ const EnhancedTable = ({ tableHeader }) => {
 
   const addJobButton = () => {
     //console.log(userData.role);
-    if (userData.role === 'coordinator') {
+    if (userData.role === 'student') {
       return (
         <Link
           style={{
