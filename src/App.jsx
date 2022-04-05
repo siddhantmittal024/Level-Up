@@ -31,6 +31,7 @@ import CreateOtherOffCampusOpportunity from './components/OtherOpportunities/Oth
 import OnCampusJobs from './components/Jobs/On-Campus-Jobs/OnCampusJobs';
 import CreateOnCampusJob from './components/Jobs/On-Campus-Jobs/CreateJob';
 import UpdateOnCampusJob from './components/Jobs/On-Campus-Jobs/UpdateJob';
+import ViewOnCampusJob from './components/Jobs/On-Campus-Jobs/ViewJob';
 
 function App() {
   const dispatch = useDispatch();
@@ -99,6 +100,12 @@ function App() {
               exact
               path="/jobs/on-campus/update/:id"
               component={UpdateOnCampusJob}
+            />
+
+            <PrivateRoute
+              exact
+              path="/jobs/on-campus/:id"
+              component={ViewOnCampusJob}
             />
 
             <PrivateRoute

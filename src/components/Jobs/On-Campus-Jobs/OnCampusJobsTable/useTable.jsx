@@ -357,7 +357,7 @@ const EnhancedTable = ({ tableHeader }) => {
                       </TableCell>
                       <TableCell>
                         <Link
-                          to={`/jobs/off-campus/${job.id}`}
+                          to={`/jobs/on-campus/${job.id}`}
                           style={{
                             textDecoration: 'none',
                             width: '100%',
