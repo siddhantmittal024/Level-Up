@@ -17,7 +17,6 @@ import OtherOpportunities from './components/OtherOpportunities';
 import HigherEducation from './components/HigherEducation/HigherEducation';
 import StudyMaterial from './components/StudyMaterial/StudyMaterial';
 import OffCampusJobs from './components/Jobs/Off-Campus-Jobs/OffCampusJobs';
-import OnCampusJobs from './components/Jobs/OnCampusJobs';
 import CreateJob from './components/Jobs/Off-Campus-Jobs/CreateJob';
 import ViewJob from './components/Jobs/Off-Campus-Jobs/ViewJob';
 import UpdateJob from './components/Jobs/Off-Campus-Jobs/UpdateJob';
@@ -29,6 +28,7 @@ import OtherOffCampusOpportunities from './components/OtherOpportunities/OtherOf
 import UpdateOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/UpdateOpportunity';
 import ViewOtherOffCampusOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/ViewOpportunity';
 import CreateOtherOffCampusOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/CreateOpportunity';
+import OnCampusJobs from './components/Jobs/On-Campus-Jobs/OnCampusJobs';
 
 function App() {
   const dispatch = useDispatch();
