@@ -1,45 +1,49 @@
-import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import React, { useState, useEffect } from 'react';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import { Container } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import { getAuth } from 'firebase/auth';
-import Button from '@mui/material/Button';
+import { Container, Box, TextField, Typography, Button } from '@mui/material';
 import { useHistory } from 'react-router-dom';
-import { collection, doc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/firebase.util';
 import MuiAlert from '@mui/material/Alert';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import LoadingPage from '../../Loading/Loading';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const CreateOnCampusJob = () => {
-  const auth = getAuth();
-  const user = auth.currentUser;
+const UpdateOnCampusJob = () => {
   const history = useHistory();
-  //console.log(user);
-
-  const initialValues = {
-    tagline: '',
-    companyName: '',
-    position: '',
-    batch: '',
-    branch: '',
-    contact: '',
-    GPA: '',
-    lastDateToApply: new Date(),
-    link: '',
-    description: '',
-    createdAt: new Date(),
-    userID: user.uid
-  };
-  const [values, setValues] = useState(initialValues);
+  //const [job, setJob] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
+  const [values, setValues] = useState(null);
+  const [loading, setLoading] = useState(true);
+  //console.log(user);
+  const { id } = useParams();
+  const jobRef = doc(db, 'on-campus-jobs', id);
+
+  useEffect(() => {
+    getDoc(jobRef).then((doc) => {
+      //setJob(doc.data());
+      let lastDateApply = doc.data().lastDateToApply.toDate();
+      let createdAtDate = doc.data().createdAt.toDate();
+      setValues({
+        ...doc.data(),
+        createdAt: createdAtDate,
+        lastDateToApply: lastDateApply
+      });
+      setLoading(false);
+      //console.log(date);
+    });
+  }, []);
+
+  //setValues({...values, lastDateToApply: values.lastDateToApply.toDate()});
+
+  if (loading) {
+    return <LoadingPage />;
+  }
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -47,13 +51,12 @@ const CreateOnCampusJob = () => {
   };
 
   const handleDateChange = (date) => {
-    //console.log(date);
     setValues({ ...values, lastDateToApply: date });
   };
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    //console.log(values);
+
     if (
       values.tagline === '' ||
       values.companyName === '' ||
@@ -63,12 +66,11 @@ const CreateOnCampusJob = () => {
       values.contact === '' ||
       values.GPA === ''
     ) {
-      //alert('Please fill all the fields');
       setShowAlert(true);
     } else {
       try {
-        const jobRef = doc(collection(db, 'on-campus-jobs'));
-        await setDoc(jobRef, values);
+        const jobRef = doc(db, 'on-campus-jobs', id);
+        await updateDoc(jobRef, values);
         history.push('/jobs/on-campus');
       } catch (err) {
         console.log('Error:', err);
@@ -99,7 +101,7 @@ const CreateOnCampusJob = () => {
             width="75%"
             align="center"
           >
-            Add Job
+            Update Job
           </Typography>
         </Box>
         <>
@@ -118,7 +120,7 @@ const CreateOnCampusJob = () => {
               required
               id="outlined-required"
               label="Tagline"
-              defaultValue=""
+              value={values.tagline}
               name="tagline"
               onChange={handleChange}
             />
@@ -126,7 +128,7 @@ const CreateOnCampusJob = () => {
               required
               id="outlined-required"
               label="Company Name"
-              defaultValue=""
+              value={values.companyName}
               name="companyName"
               onChange={handleChange}
             />
@@ -134,24 +136,24 @@ const CreateOnCampusJob = () => {
               required
               id="outlined-required"
               label="Position"
-              defaultValue=""
+              value={values.position}
               name="position"
+              onChange={handleChange}
+            />
+            <TextField
+              id="outlined-required"
+              label="Batch"
+              value={values.batch}
+              name="batch"
+              type="number"
               onChange={handleChange}
             />
 
             <TextField
               required
               id="outlined-required"
-              label="Batch"
-              defaultValue=""
-              name="batch"
-              type="number"
-              onChange={handleChange}
-            />
-            <TextField
-              id="outlined-required"
               label="Branch"
-              defaultValue=""
+              value={values.branch}
               name="branch"
               onChange={handleChange}
             />
@@ -159,7 +161,7 @@ const CreateOnCampusJob = () => {
               required
               id="outlined-required"
               label="GPA"
-              defaultValue=""
+              value={values.GPA}
               name="GPA"
               onChange={handleChange}
             />
@@ -167,7 +169,7 @@ const CreateOnCampusJob = () => {
               required
               id="outlined-required"
               label="Person to Contact"
-              defaultValue=""
+              value={values.contact}
               name="contact"
               onChange={handleChange}
             />
@@ -175,6 +177,7 @@ const CreateOnCampusJob = () => {
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DateTimePicker
                 label="Last Date to Apply"
+                //defaultValue={values.lastDateToApply}
                 value={values.lastDateToApply}
                 name="lastDateToApply"
                 onChange={handleDateChange}
@@ -185,9 +188,8 @@ const CreateOnCampusJob = () => {
               required
               id="outlined-required"
               label="Link"
-              defaultValue=""
+              value={values.link}
               name="link"
-              sx={{ minWidth: '84%' }}
               onChange={handleChange}
             />
             <TextField
@@ -198,7 +200,7 @@ const CreateOnCampusJob = () => {
               maxRows={15}
               sx={{ minWidth: '90%' }}
               name="description"
-              //value={value}
+              value={values.description}
               onChange={handleChange}
             />
             <Button
@@ -225,4 +227,4 @@ const CreateOnCampusJob = () => {
   );
 };
 
-export default CreateOnCampusJob;
+export default UpdateOnCampusJob;
