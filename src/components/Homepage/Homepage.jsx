@@ -5,7 +5,17 @@ import { useDispatch } from 'react-redux';
 import { userSlice } from '../../redux/userSlice';
 import { getDoc, doc, setDoc } from 'firebase/firestore';
 import { useHistory } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { Button, Container, Paper, Box, Typography } from '@mui/material';
+
+const styles = {
+  paperContainer: {
+    height: '100vh',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundImage: `url(${'src/images/bg.jpg'})`
+    //alignItems: 'center'
+  }
+};
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -43,14 +53,50 @@ const Homepage = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h1>Welcome to Level-Up!</h1>
-        <Button variant="contained" onClick={handleSignIn}>
-          LOGIN
-        </Button>
-      </div>
-    </div>
+    <Paper style={styles.paperContainer}>
+      <Box
+        minHeight="100vh"
+        //minWidth="50vw"
+        align="center"
+        display="flex"
+        //alignItems="center"
+        justifyContent="center"
+        //flexDirection="column"
+      >
+        <Box
+          display="flex"
+          flexDirection="column"
+          align="center"
+          //height="100vh"
+          margin="auto"
+          //marginTop="auto"
+          sx={{
+            backgroundColor: '#EBEBEB',
+            minWidth: 345,
+            minHeight: 250,
+            opacity: [0.9]
+          }}
+        >
+          <Typography variant="h3" align="center" sx={{ margin: 'auto' }}>
+            level <strong>up</strong>
+          </Typography>
+
+          <Button
+            variant="contained"
+            onClick={handleSignIn}
+            sx={{
+              width: 130,
+              margin: 'auto',
+              height: 50,
+              backgroundColor: '#75A2C9',
+              opacity: 1
+            }}
+          >
+            LOGIN
+          </Button>
+        </Box>
+      </Box>
+    </Paper>
   );
 };
 

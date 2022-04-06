@@ -61,6 +61,7 @@ const CreateInternship = () => {
       setShowAlert(true);
     } else {
       try {
+        values.batch = parseInt(values.batch);
         const internRef = doc(collection(db, 'off-campus-internships'));
         await setDoc(internRef, values);
         history.push('/internships/off-campus');

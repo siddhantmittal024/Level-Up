@@ -66,6 +66,7 @@ const UpdateInternship = () => {
       setShowAlert(true);
     } else {
       try {
+        values.batch = parseInt(values.batch);
         const internRef = doc(db, 'off-campus-internships', id);
         await updateDoc(internRef, values);
         history.push('/internships/off-campus');

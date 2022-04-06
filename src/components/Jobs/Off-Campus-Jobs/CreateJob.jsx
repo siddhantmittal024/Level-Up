@@ -61,6 +61,7 @@ const CreateJob = () => {
       setShowAlert(true);
     } else {
       try {
+        values.batch = parseInt(values.batch);
         const jobRef = doc(collection(db, 'off-campus-jobs'));
         await setDoc(jobRef, values);
         history.push('/jobs/off-campus');

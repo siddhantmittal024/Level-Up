@@ -66,6 +66,7 @@ const UpdateJob = () => {
       setShowAlert(true);
     } else {
       try {
+        values.batch = parseInt(values.batch);
         const jobRef = doc(db, 'off-campus-jobs', id);
         await updateDoc(jobRef, values);
         history.push('/jobs/off-campus');
