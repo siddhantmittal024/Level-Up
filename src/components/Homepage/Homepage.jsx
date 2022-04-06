@@ -89,7 +89,12 @@ const Homepage = () => {
               margin: 'auto',
               height: 50,
               backgroundColor: '#75A2C9',
-              opacity: 1
+              opacity: 1,
+              fontWeight: 'bold',
+              fontSize: 18,
+              '&:hover': {
+                backgroundColor: '#5C8FB2'
+              }
             }}
           >
             LOGIN
