@@ -254,7 +254,7 @@ const EnhancedTable = ({ tableHeader }) => {
             color: 'black',
             marginRight: 0
           }}
-          to={'/internships/on-campus/add-job'}
+          to={'/internships/on-campus/add-internship'}
         >
           <Button
             variant="contained"
