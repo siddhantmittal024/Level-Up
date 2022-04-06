@@ -45,7 +45,7 @@ const Navbar = ({ name }) => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: '#EBEBEB' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -56,9 +56,12 @@ const Navbar = ({ name }) => {
           >
             <Link
               to="/dashboard"
-              style={{ textDecoration: 'none', color: 'white' }}
+              style={{ textDecoration: 'none', color: 'black' }}
             >
-              LEVEL UP
+              <Typography variant="h4">
+                {' '}
+                level <strong>up</strong>
+              </Typography>
             </Link>
           </Typography>
 
@@ -106,9 +109,12 @@ const Navbar = ({ name }) => {
           >
             <Link
               to="/dashboard"
-              style={{ textDecoration: 'none', color: 'white' }}
+              style={{ textDecoration: 'none', color: 'black' }}
             >
-              LEVEL UP
+              <Typography variant="h4">
+                {' '}
+                level <strong>up</strong>
+              </Typography>
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}></Box>
@@ -118,10 +124,14 @@ const Navbar = ({ name }) => {
               onClick={handleSignOut}
               sx={{
                 my: 2,
+                backgroundColor: '#75A2C9',
                 color: 'white',
                 display: 'block',
                 fontSize: 18,
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                '&:hover': {
+                  backgroundColor: '#5C8FB2'
+                }
               }}
             >
               Logout
