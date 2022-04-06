@@ -14,7 +14,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const UpdateOnCampusJob = () => {
+const UpdateOnCampusInternship = () => {
   const history = useHistory();
   //const [job, setJob] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
@@ -22,10 +22,10 @@ const UpdateOnCampusJob = () => {
   const [loading, setLoading] = useState(true);
   //console.log(user);
   const { id } = useParams();
-  const jobRef = doc(db, 'on-campus-jobs', id);
+  const internshipRef = doc(db, 'on-campus-internships', id);
 
   useEffect(() => {
-    getDoc(jobRef).then((doc) => {
+    getDoc(internshipRef).then((doc) => {
       //setJob(doc.data());
       let lastDateApply = doc.data().lastDateToApply.toDate();
       let createdAtDate = doc.data().createdAt.toDate();
@@ -70,9 +70,9 @@ const UpdateOnCampusJob = () => {
     } else {
       try {
         values.batch = parseInt(values.batch);
-        const jobRef = doc(db, 'on-campus-jobs', id);
-        await updateDoc(jobRef, values);
-        history.push('/jobs/on-campus');
+        const internshipRef = doc(db, 'on-campus-internships', id);
+        await updateDoc(internshipRef, values);
+        history.push('/internships/on-campus');
       } catch (err) {
         console.log('Error:', err);
       }
@@ -84,7 +84,7 @@ const UpdateOnCampusJob = () => {
       <Container align="center" sx={{ marginTop: '50px' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', width: '80%' }}>
           <Link
-            to="/jobs/on-campus"
+            to="/internships/on-campus"
             style={{
               textDecoration: 'none',
               color: 'black',
@@ -102,7 +102,7 @@ const UpdateOnCampusJob = () => {
             width="75%"
             align="center"
           >
-            Update Job
+            Update Internship
           </Typography>
         </Box>
         <>
@@ -191,7 +191,7 @@ const UpdateOnCampusJob = () => {
               label="Link"
               value={values.link}
               name="link"
-              sx={{minWidth: '84%'}}
+              sx={{ minWidth: '84%' }}
               onChange={handleChange}
             />
             <TextField
@@ -229,4 +229,4 @@ const UpdateOnCampusJob = () => {
   );
 };
 
-export default UpdateOnCampusJob;
+export default UpdateOnCampusInternship;
