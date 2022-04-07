@@ -14,7 +14,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const UpdateOffCampusOpportunity = () => {
+const UpdateOnCampusOpportunity = () => {
   const history = useHistory();
   //const [intern, setintern] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
@@ -22,7 +22,7 @@ const UpdateOffCampusOpportunity = () => {
   const [loading, setLoading] = useState(true);
   //console.log(user);
   const { id } = useParams();
-  const otherOpportunityRef = doc(db, 'other-off-campus-opportunities', id);
+  const otherOpportunityRef = doc(db, 'other-on-campus-opportunities', id);
 
   useEffect(() => {
     getDoc(otherOpportunityRef).then((doc) => {
@@ -60,18 +60,19 @@ const UpdateOffCampusOpportunity = () => {
     if (
       values.tagline === '' ||
       values.opportunityType === '' ||
-      values.link === ''
+      values.link === '' ||
+      values.contact === ''
     ) {
       setShowAlert(true);
     } else {
       try {
         const otherOpportunityRef = doc(
           db,
-          'other-off-campus-opportunities',
+          'other-on-campus-opportunities',
           id
         );
         await updateDoc(otherOpportunityRef, values);
-        history.push('/other-opportunities/off-campus');
+        history.push('/other-opportunities/on-campus');
       } catch (err) {
         console.log('Error:', err);
       }
@@ -83,7 +84,7 @@ const UpdateOffCampusOpportunity = () => {
       <Container align="center" sx={{ marginTop: '50px' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', width: '80%' }}>
           <Link
-            to="/other-opportunities/off-campus"
+            to="/other-opportunities/on-campus"
             style={{
               textDecoration: 'none',
               color: 'black',
@@ -132,6 +133,14 @@ const UpdateOffCampusOpportunity = () => {
               name="opportunityType"
               onChange={handleChange}
             />
+            <TextField
+              required
+              id="outlined-required"
+              label="Person to Contact"
+              value={values.contact}
+              name="contact"
+              onChange={handleChange}
+            />
 
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DateTimePicker
@@ -150,6 +159,7 @@ const UpdateOffCampusOpportunity = () => {
               value={values.link}
               name="link"
               onChange={handleChange}
+              sx={{ minWidth: '84%' }}
             />
             <TextField
               id="fullWidth"
@@ -186,4 +196,4 @@ const UpdateOffCampusOpportunity = () => {
   );
 };
 
-export default UpdateOffCampusOpportunity;
+export default UpdateOnCampusOpportunity;

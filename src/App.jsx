@@ -25,7 +25,7 @@ import CreateInternship from './components/Internships/Off-Campus-Internships/cr
 import ViewInternship from './components/Internships/Off-Campus-Internships/ViewInternship';
 import UpdateInternship from './components/Internships/Off-Campus-Internships/UpdateInternship';
 import OtherOffCampusOpportunities from './components/OtherOpportunities/OtherOffCampusOpportunities';
-import UpdateOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/UpdateOpportunity';
+import UpdateOffCampusOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/UpdateOpportunity';
 import ViewOtherOffCampusOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/ViewOpportunity';
 import CreateOtherOffCampusOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/CreateOpportunity';
 import OnCampusJobs from './components/Jobs/On-Campus-Jobs/OnCampusJobs';
@@ -38,6 +38,7 @@ import UpdateOnCampusInternship from './components/Internships/On-Campus-Interns
 import ViewOnCampusInternship from './components/Internships/On-Campus-Internships/ViewInternship';
 import OtherOnCampusOpportunities from './components/OtherOpportunities/OtherOnCampusOpportunities';
 import CreateOtherOnCampusOpportunity from './components/OtherOpportunities/OtherOnCampusOpportunities/CreateOpportunity';
+import UpdateOnCampusOpportunity from './components/OtherOpportunities/OtherOnCampusOpportunities/UpdateOpportunity';
 
 function App() {
   const dispatch = useDispatch();
@@ -207,7 +208,7 @@ function App() {
             <PrivateRoute
               exact
               path="/other-opportunities/off-campus/update/:id"
-              component={UpdateOpportunity}
+              component={UpdateOffCampusOpportunity}
             />
 
             <PrivateRoute
@@ -220,6 +221,12 @@ function App() {
               exact
               path="/other-opportunities/on-campus/add-opportunity"
               component={CreateOtherOnCampusOpportunity}
+            />
+
+            <PrivateRoute
+              exact
+              path="/other-opportunities/on-campus/update/:id"
+              component={UpdateOnCampusOpportunity}
             />
           </Switch>
         </div>
