@@ -41,6 +41,7 @@ import CreateOtherOnCampusOpportunity from './components/OtherOpportunities/Othe
 import UpdateOnCampusOpportunity from './components/OtherOpportunities/OtherOnCampusOpportunities/UpdateOpportunity';
 import ViewOtherOnCampusOpportunity from './components/OtherOpportunities/OtherOnCampusOpportunities/ViewOpportunity';
 import UsersData from './components/Users';
+import UpdateUser from './components/Users/UpdateUser';
 
 function App() {
   const dispatch = useDispatch();
@@ -77,6 +78,11 @@ function App() {
             />
             <PrivateRoute exact path="/jobs" component={Jobs} />
             <PrivateRoute exact path="/users" component={UsersData} />
+            <PrivateRoute
+              exact
+              path="/users/update/:id"
+              component={UpdateUser}
+            />
             <PrivateRoute exact path="/internships" component={Internships} />
             <PrivateRoute
               exact

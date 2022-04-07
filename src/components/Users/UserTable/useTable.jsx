@@ -191,25 +191,33 @@ const EnhancedTable = ({ tableHeader }) => {
     return <div>{error.message}</div>;
   }
 
-  const printEditIcon = (userID) => {
-    return (
-      <Link to={`/users/update/${userID}`}>
-        <Tooltip title="Edit">
-          <EditIcon sx={{ color: '#1976D2' }} />
-        </Tooltip>
-      </Link>
-    );
+  const printEditIcon = (userID, role) => {
+    if (role !== 'admin') {
+      return (
+        <Link to={`/users/update/${userID}`}>
+          <Tooltip title="Edit">
+            <EditIcon sx={{ color: '#1976D2' }} />
+          </Tooltip>
+        </Link>
+      );
+    } else {
+      return null;
+    }
   };
 
-  const printDeleteIcon = (userID) => {
-    return (
-      <Tooltip title="Delete">
-        <DeleteIcon
-          sx={{ color: 'red', cursor: 'pointer' }}
-          onClick={(e) => handleDelete(e, userID)}
-        />
-      </Tooltip>
-    );
+  const printDeleteIcon = (userID, role) => {
+    if (role !== 'admin') {
+      return (
+        <Tooltip title="Delete">
+          <DeleteIcon
+            sx={{ color: 'red', cursor: 'pointer' }}
+            onClick={(e) => handleDelete(e, userID)}
+          />
+        </Tooltip>
+      );
+    } else {
+      return null;
+    }
   };
 
   // Avoid a layout jump when reaching the last page with empty rows.
@@ -281,8 +289,10 @@ const EnhancedTable = ({ tableHeader }) => {
                       <TableCell>{user.name}</TableCell>
                       <TableCell>{user.email}</TableCell>
                       <TableCell>{user.role}</TableCell>
-                      <TableCell>{printDeleteIcon(user.id)}</TableCell>
-                      <TableCell>{printEditIcon(user.id)}</TableCell>
+                      <TableCell>
+                        {printDeleteIcon(user.id, user.role)}
+                      </TableCell>
+                      <TableCell>{printEditIcon(user.id, user.role)}</TableCell>
                     </TableRow>
                   );
                 })}
