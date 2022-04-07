@@ -39,6 +39,7 @@ import ViewOnCampusInternship from './components/Internships/On-Campus-Internshi
 import OtherOnCampusOpportunities from './components/OtherOpportunities/OtherOnCampusOpportunities';
 import CreateOtherOnCampusOpportunity from './components/OtherOpportunities/OtherOnCampusOpportunities/CreateOpportunity';
 import UpdateOnCampusOpportunity from './components/OtherOpportunities/OtherOnCampusOpportunities/UpdateOpportunity';
+import ViewOtherOnCampusOpportunity from './components/OtherOpportunities/OtherOnCampusOpportunities/ViewOpportunity';
 
 function App() {
   const dispatch = useDispatch();
@@ -227,6 +228,12 @@ function App() {
               exact
               path="/other-opportunities/on-campus/update/:id"
               component={UpdateOnCampusOpportunity}
+            />
+
+            <PrivateRoute
+              exact
+              path="/other-opportunities/on-campus/:id"
+              component={ViewOtherOnCampusOpportunity}
             />
           </Switch>
         </div>
