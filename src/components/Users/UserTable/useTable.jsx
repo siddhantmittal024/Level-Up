@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { getAuth } from 'firebase/auth';
 import { doc, deleteDoc, getDocs, collection } from 'firebase/firestore';
 import { db } from '../../../firebase/firebase.util';
 import { Link } from 'react-router-dom';
@@ -7,7 +6,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import {
-  Button,
   FormControl,
   Input,
   Typography,
@@ -105,8 +103,6 @@ EnhancedTableHead.propTypes = {
 };
 
 const EnhancedTable = ({ tableHeader }) => {
-  const auth = getAuth();
-  //const user = auth.currentUser;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [order, setOrder] = useState('asc');
@@ -173,6 +169,7 @@ const EnhancedTable = ({ tableHeader }) => {
   const handleDelete = async (e, userID) => {
     e.preventDefault();
     setLoading(true);
+
     deleteDoc(doc(db, 'users', userID))
       .then(async () => {
         getUsers();

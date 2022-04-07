@@ -106,7 +106,6 @@ const UpdateUser = () => {
             name="name"
             inputProps={{ readOnly: true }}
             sx={{ minWidth: '45%' }}
-            //onChange={handleChange}
           />
           <TextField
             id="outlined-required"
@@ -115,8 +114,6 @@ const UpdateUser = () => {
             name="email"
             inputProps={{ readOnly: true }}
             sx={{ minWidth: '45%' }}
-            // margin="normal"
-            //onChange={handleChange}
           />
 
           <TextField
@@ -139,7 +136,6 @@ const UpdateUser = () => {
             variant="contained"
             color="primary"
             style={{ color: 'white', marginTop: '30px' }}
-            // sx={{}}
           >
             Submit
           </Button>
