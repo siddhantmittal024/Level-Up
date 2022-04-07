@@ -24,7 +24,7 @@ import OffCampusInternships from './components/Internships/Off-Campus-Internship
 import CreateInternship from './components/Internships/Off-Campus-Internships/createInternship';
 import ViewInternship from './components/Internships/Off-Campus-Internships/ViewInternship';
 import UpdateInternship from './components/Internships/Off-Campus-Internships/UpdateInternship';
-import OtherOffCampusOpportunities from './components/OtherOpportunities/OtherOffCampusOpportunities/OtherOffCampusOpportunities';
+import OtherOffCampusOpportunities from './components/OtherOpportunities/OtherOffCampusOpportunities';
 import UpdateOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/UpdateOpportunity';
 import ViewOtherOffCampusOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/ViewOpportunity';
 import CreateOtherOffCampusOpportunity from './components/OtherOpportunities/OtherOffCampusOpportunities/CreateOpportunity';
@@ -36,6 +36,7 @@ import OnCampusInternships from './components/Internships/On-Campus-Internships/
 import CreateOnCampusInternship from './components/Internships/On-Campus-Internships/CreateInternship';
 import UpdateOnCampusInternship from './components/Internships/On-Campus-Internships/UpdateInternship';
 import ViewOnCampusInternship from './components/Internships/On-Campus-Internships/ViewInternship';
+import OtherOnCampusOpportunities from './components/OtherOpportunities/OtherOnCampusOpportunities';
 
 function App() {
   const dispatch = useDispatch();
@@ -206,6 +207,12 @@ function App() {
               exact
               path="/other-opportunities/off-campus/update/:id"
               component={UpdateOpportunity}
+            />
+
+            <PrivateRoute
+              exact
+              path="/other-opportunites/on-campus"
+              component={OtherOnCampusOpportunities}
             />
           </Switch>
         </div>
