@@ -5,7 +5,7 @@ import { UserTableHeader } from './UserTable/tableHeader';
 
 const tableHeader = UserTableHeader;
 
-const usersData = () => {
+const UsersData = () => {
   //console.log('HELO');
   return (
     <Container>
@@ -16,4 +16,4 @@ const usersData = () => {
   );
 };
 
-export default usersData;
+export default UsersData;

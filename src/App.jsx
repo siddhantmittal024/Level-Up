@@ -40,6 +40,7 @@ import OtherOnCampusOpportunities from './components/OtherOpportunities/OtherOnC
 import CreateOtherOnCampusOpportunity from './components/OtherOpportunities/OtherOnCampusOpportunities/CreateOpportunity';
 import UpdateOnCampusOpportunity from './components/OtherOpportunities/OtherOnCampusOpportunities/UpdateOpportunity';
 import ViewOtherOnCampusOpportunity from './components/OtherOpportunities/OtherOnCampusOpportunities/ViewOpportunity';
+import UsersData from './components/Users';
 
 function App() {
   const dispatch = useDispatch();
@@ -75,6 +76,7 @@ function App() {
               isAuthenticated={isAuthenticated}
             />
             <PrivateRoute exact path="/jobs" component={Jobs} />
+            <PrivateRoute exact path="/users" component={UsersData} />
             <PrivateRoute exact path="/internships" component={Internships} />
             <PrivateRoute
               exact
