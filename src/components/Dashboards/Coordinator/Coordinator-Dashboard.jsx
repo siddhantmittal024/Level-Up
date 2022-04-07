@@ -6,7 +6,7 @@ import SectionCard from '../../SectionCard/SectionCard';
 import { CoordinatorDashboardTites } from '../../../utils/cardTitles';
 //import Card from '../Card/Card';
 
-export default function StudentDashboard() {
+export default function CoordinatorDashboard() {
   return (
     <Box sx={{ flexGrow: 1 }} my={{ xs: 6, sm: 8, md: 10 }}>
       <Grid

@@ -36,6 +36,25 @@ export const CoordinatorDashboardTites = [
   }
 ];
 
+export const AdminDashboardTitles = [
+  {
+    title: 'Jobs',
+    imageUrl: '/src/images/jobs.jpg'
+  },
+  {
+    title: 'Internships',
+    imageUrl: '/src/images/internships.jpg'
+  },
+  {
+    title: 'Other Opportunities',
+    imageUrl: '/src/images/other-opportunities.png'
+  },
+  {
+    title: 'Users',
+    imageUrl: ''
+  }
+];
+
 export const SubSectiontitles = [
   {
     title: 'On Campus',
