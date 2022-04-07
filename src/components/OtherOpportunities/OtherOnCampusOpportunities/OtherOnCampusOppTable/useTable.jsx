@@ -3,6 +3,7 @@ import { getAuth } from 'firebase/auth';
 import { doc, deleteDoc, getDocs, collection } from 'firebase/firestore';
 import { db } from '../../../../firebase/firebase.util';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import PropTypes from 'prop-types';
 import IconButton from '@mui/material/IconButton';
@@ -115,6 +116,7 @@ EnhancedTableHead.propTypes = {
 const EnhancedTable = ({ tableHeader }) => {
   const auth = getAuth();
   const user = auth.currentUser;
+  const userData = useSelector((state) => state.users.currentUser);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [order, setOrder] = useState('asc');
@@ -124,10 +126,7 @@ const EnhancedTable = ({ tableHeader }) => {
   const [rows, setRows] = useState([]);
   const [searched, setSearched] = useState('');
 
-  const otherOpportunitiesRef = collection(
-    db,
-    'other-on-campus-opportunities'
-  );
+  const otherOpportunitiesRef = collection(db, 'other-on-campus-opportunities');
 
   // const getJobs = async () => {
   //   try {
@@ -250,6 +249,32 @@ const EnhancedTable = ({ tableHeader }) => {
     }
   };
 
+  const addJobButton = () => {
+    //console.log(userData.role);
+    if (userData.role === 'coordinator') {
+      return (
+        <Link
+          style={{
+            textDecoration: 'none',
+            color: 'black',
+            marginRight: 0
+          }}
+          to={'/other-opportunities/on-campus/add-opportunity'}
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ width: '150px', marginRight: '10px' }}
+          >
+            Add Opportunity
+          </Button>
+        </Link>
+      );
+    } else {
+      return null;
+    }
+  };
+
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -296,22 +321,7 @@ const EnhancedTable = ({ tableHeader }) => {
               sx={{ marginTop: '12px', height: '30px', width: '30px' }}
             />
           </Box>
-          <Link
-            style={{
-              textDecoration: 'none',
-              color: 'black',
-              marginRight: 0
-            }}
-            to={'/other-opportunities/on-campus/add-opportunity'}
-          >
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{ width: '170px', marginRight: '10px' }}
-            >
-              Add Opportunity
-            </Button>
-          </Link>
+          {addJobButton()}
           {/* <Tooltip title="Filter list">
             <IconButton>
               <FilterListIcon />
