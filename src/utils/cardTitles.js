@@ -21,6 +21,21 @@ export const StudentDashboardTitles = [
   }
 ];
 
+export const CoordinatorDashboardTites = [
+  {
+    title: 'Jobs',
+    imageUrl: '/src/images/jobs.jpg'
+  },
+  {
+    title: 'Internships',
+    imageUrl: '/src/images/internships.jpg'
+  },
+  {
+    title: 'Other Opportunities',
+    imageUrl: '/src/images/other-opportunities.png'
+  }
+];
+
 export const SubSectiontitles = [
   {
     title: 'On Campus',
