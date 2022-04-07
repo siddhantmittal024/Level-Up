@@ -211,9 +211,10 @@ function App() {
 
             <PrivateRoute
               exact
-              path="/other-opportunites/on-campus"
+              path="/other-opportunities/on-campus"
               component={OtherOnCampusOpportunities}
             />
+            
           </Switch>
         </div>
       </Router>

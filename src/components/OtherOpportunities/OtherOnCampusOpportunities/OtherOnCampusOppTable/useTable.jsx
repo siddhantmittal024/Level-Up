@@ -66,6 +66,7 @@ function stableSort(array, comparator) {
 }
 
 function EnhancedTableHead(props) {
+  //console.log("HELLLOOOO");
   const { order, orderBy, onRequestSort, tableHeader } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
