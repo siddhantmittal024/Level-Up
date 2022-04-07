@@ -264,7 +264,7 @@ const EnhancedTable = ({ tableHeader }) => {
           <Button
             variant="contained"
             color="primary"
-            sx={{ width: '150px', marginRight: '10px' }}
+            sx={{ width: '170px', marginRight: '10px' }}
           >
             Add Opportunity
           </Button>
