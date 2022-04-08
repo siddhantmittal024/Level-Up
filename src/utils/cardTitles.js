@@ -51,7 +51,7 @@ export const AdminDashboardTitles = [
   },
   {
     title: 'Users',
-    imageUrl: '/src/images/users1.jpg'
+    imageUrl: '/src/images/user.jpg'
   }
 ];
 
