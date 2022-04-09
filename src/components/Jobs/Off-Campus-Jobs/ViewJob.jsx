@@ -26,35 +26,81 @@ const ViewJob = () => {
   if (job !== null) {
     return (
       <Container align="center">
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Link
-            to="/jobs/off-campus"
-            style={{
-              textDecoration: 'none',
-              color: 'black',
-              marginRight: 0
-            }}
-          >
-            <Button
-              variant="contained"
-              //color="primary"
-              sx={{ width: '100px', backgroundColor: '#75A2C9' }}
-            >
-              {`Back`}
-            </Button>
-          </Link>
-          <Typography
-            variant="h3"
-            gutterBottom
-            component="div"
-            mt={4}
-            align="center"
-            width="100%"
-          >
-            Off-Campus Jobs
-          </Typography>
-        </Box>
         <Box
+          sx={{
+            display: 'flex',
+            bgcolor: '#F7F7F7',
+            border: 0.2,
+            borderColor: '#e8e8e8',
+            //alignItems: 'flex-start',
+            flexDirection: 'column',
+            p: 1,
+            mt: 10
+          }}
+          width="100%"
+        >
+          <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+            <Link
+              to="/jobs/off-campus"
+              style={{
+                textDecoration: 'none',
+                color: 'black',
+                marginRight: 0
+              }}
+            >
+              <Button
+                variant="contained"
+                //color="primary"
+                sx={{ width: '100px', backgroundColor: '#75A2C9' }}
+              >
+                {`Back`}
+              </Button>
+            </Link>
+            <Box
+              sx={{ alignSelf: 'center', width: '100%', marginLeft: '-70px' }}
+            >
+              <Typography
+                variant="h3"
+                gutterBottom
+                component="div"
+                sx={{ margin: 'auto' }}
+              >
+                {job.companyName}
+              </Typography>
+            </Box>
+          </Box>
+          <Box>
+            <Box>
+              <Typography
+                variant="h5"
+                gutterBottom
+                component="div"
+                sx={{ marginTop: '30px' }}
+              >
+                {job.tagline}
+              </Typography>
+            </Box>
+            <Box sx={{ align: 'left' }}>
+              <Typography
+                variant="h5"
+                gutterBottom
+                component="div"
+                sx={{ marginTop: '30px' }}
+              >
+                {job.tagline}
+              </Typography>
+              <Typography
+                variant="h5"
+                gutterBottom
+                component="div"
+                sx={{ marginTop: '30px' }}
+              >
+                {job.tagline}
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
+        {/* <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -77,6 +123,22 @@ const ViewJob = () => {
             }}
             width="100%"
           >
+            <Link
+              to="/jobs/off-campus"
+              style={{
+                textDecoration: 'none',
+                color: 'black',
+                marginRight: 0
+              }}
+            >
+              <Button
+                variant="contained"
+                //color="primary"
+                sx={{ width: '100px', backgroundColor: '#75A2C9' }}
+              >
+                {`Back`}
+              </Button>
+            </Link>
             <Box ml={2} mr={2} width="100%" alignContent="flex-start" mt={4}>
               <Typography variant="h5" gutterBottom component="div">
                 {job.tagline}
@@ -108,7 +170,7 @@ const ViewJob = () => {
               <Typography my={2}>Link: {job.link}</Typography>
             </Box>
           </Box>
-        </Box>
+        </Box> */}
       </Container>
     );
   } else {
