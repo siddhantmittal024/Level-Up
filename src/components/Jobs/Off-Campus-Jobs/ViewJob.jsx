@@ -37,10 +37,10 @@ const ViewJob = () => {
           >
             <Button
               variant="contained"
-              color="primary"
-              sx={{ width: '100px'}}
+              //color="primary"
+              sx={{ width: '100px', backgroundColor: '#75A2C9' }}
             >
-             {`Back`}
+              {`Back`}
             </Button>
           </Link>
           <Typography

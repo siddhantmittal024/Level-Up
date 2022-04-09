@@ -269,8 +269,12 @@ const EnhancedTable = ({ tableHeader }) => {
         >
           <Button
             variant="contained"
-            color="primary"
-            sx={{ width: '150px', marginRight: '10px' }}
+            //color="primary"
+            sx={{
+              width: '150px',
+              marginRight: '10px',
+              backgroundColor: '#75A2C9'
+            }}
           >
             Add Internship
           </Button>

@@ -91,7 +91,10 @@ const UpdateOnCampusInternship = () => {
               marginRight: 0
             }}
           >
-            <Button variant="contained" color="primary" sx={{ width: '100px' }}>
+            <Button
+              variant="contained"
+              sx={{ width: '100px', backgroundColor: '#75A2C9' }}
+            >
               {`Back`}
             </Button>
           </Link>
@@ -208,8 +211,8 @@ const UpdateOnCampusInternship = () => {
             <Button
               onClick={onSubmit}
               variant="contained"
-              color="primary"
-              style={{ color: 'white' }}
+              //color="primary"
+              style={{ color: 'white', backgroundColor: '#75A2C9' }}
             >
               Submit
             </Button>

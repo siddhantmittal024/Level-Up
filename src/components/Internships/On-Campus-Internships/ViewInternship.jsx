@@ -35,7 +35,10 @@ const ViewOnCampusInternship = () => {
               marginRight: 0
             }}
           >
-            <Button variant="contained" color="primary" sx={{ width: '100px' }}>
+            <Button
+              variant="contained"
+              sx={{ width: '100px', backgroundColor: '#75A2C9' }}
+            >
               {`Back`}
             </Button>
           </Link>
@@ -88,7 +91,9 @@ const ViewOnCampusInternship = () => {
               width="100%"
             >
               <Box width="100%">
-                <Typography my={2}>Company: {internship.companyName}</Typography>
+                <Typography my={2}>
+                  Company: {internship.companyName}
+                </Typography>
                 <Typography>Batch: {internship.batch}</Typography>
               </Box>
               <Box width="100%" m="auto">
@@ -100,9 +105,13 @@ const ViewOnCampusInternship = () => {
                     .toLocaleDateString('en', options)}
                 </Typography>
               </Box>
-              <Typography my={2}>Description: {internship.description}</Typography>
+              <Typography my={2}>
+                Description: {internship.description}
+              </Typography>
 
-              <Typography my={2}>Person to Contact: {internship.contact}</Typography>
+              <Typography my={2}>
+                Person to Contact: {internship.contact}
+              </Typography>
               <Typography my={2}>Branch: {internship.branch}</Typography>
               <Typography my={2}>GPA: {internship.GPA}</Typography>
             </Box>
