@@ -217,7 +217,11 @@ const EnhancedTable = ({ tableHeader }) => {
   }
 
   const printEditIcon = (userID, jobID) => {
-    if (userID === user.uid) {
+    if (
+      userID === user.uid ||
+      userData.role === 'admin' ||
+      userData.role === 'coordinator'
+    ) {
       return (
         <Link to={`/jobs/on-campus/update/${jobID}`}>
           <Tooltip title="Edit">
@@ -231,7 +235,11 @@ const EnhancedTable = ({ tableHeader }) => {
   };
 
   const printDeleteIcon = (userID, jobID) => {
-    if (userID === user.uid) {
+    if (
+      userID === user.uid ||
+      userData.role === 'coordinator' ||
+      userData.role === 'admin'
+    ) {
       return (
         <Tooltip title="Delete">
           <DeleteIcon
@@ -247,7 +255,7 @@ const EnhancedTable = ({ tableHeader }) => {
 
   const addJobButton = () => {
     //console.log(userData.role);
-    if (userData.role === 'coordinator') {
+    if (userData.role === 'coordinator' || userData.role === 'admin') {
       return (
         <Link
           style={{
