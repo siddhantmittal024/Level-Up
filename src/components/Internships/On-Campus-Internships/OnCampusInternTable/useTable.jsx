@@ -139,7 +139,10 @@ const EnhancedTable = ({ tableHeader }) => {
     //console.log('hello');
     try {
       const interhsipData = await getDocs(internshipsRef);
-      const internships = interhsipData.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      const internships = interhsipData.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id
+      }));
       //console.log(jobs);
       const expiredInternships = internships.filter((job) => {
         const date = Date.parse(job.lastDateToApply.toDate());
@@ -216,7 +219,11 @@ const EnhancedTable = ({ tableHeader }) => {
   }
 
   const printEditIcon = (userID, jobID) => {
-    if (userID === user.uid) {
+    if (
+      userID === user.uid ||
+      userData.role === 'admin' ||
+      userData.role === 'coordinator'
+    ) {
       return (
         <Link to={`/internships/on-campus/update/${jobID}`}>
           <Tooltip title="Edit">
@@ -230,7 +237,11 @@ const EnhancedTable = ({ tableHeader }) => {
   };
 
   const printDeleteIcon = (userID, jobID) => {
-    if (userID === user.uid) {
+    if (
+      userID === user.uid ||
+      userData.role === 'admin' ||
+      userData.role === 'coordinator'
+    ) {
       return (
         <Tooltip title="Delete">
           <DeleteIcon
@@ -246,7 +257,7 @@ const EnhancedTable = ({ tableHeader }) => {
 
   const addJobButton = () => {
     //console.log(userData.role);
-    if (userData.role === 'coordinator') {
+    if (userData.role === 'coordinator' || userData.role === 'admin') {
       return (
         <Link
           style={{
