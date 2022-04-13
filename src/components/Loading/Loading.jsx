@@ -13,7 +13,7 @@ const LoadingPage = () => (
   >
     <img
       style={{ height: '6rem', width: '6rem' }}
-      src="/src/images/loader.gif"
+      src="/images/loader.gif"
     ></img>
   </Container>
 );

@@ -12,7 +12,7 @@ const styles = {
     height: '100vh',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    backgroundImage: `url(${'src/images/bg.jpg'})`
+    backgroundImage: `url(${'/images/bg.jpg'})`
     //alignItems: 'center'
   }
 };
