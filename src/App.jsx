@@ -21,7 +21,7 @@ import CreateJob from './components/Jobs/Off-Campus-Jobs/CreateJob';
 import ViewJob from './components/Jobs/Off-Campus-Jobs/ViewJob';
 import UpdateJob from './components/Jobs/Off-Campus-Jobs/UpdateJob';
 import OffCampusInternships from './components/Internships/Off-Campus-Internships';
-import CreateInternship from './components/Internships/Off-Campus-Internships/createInternship';
+import CreateInternship from './components/Internships/Off-Campus-Internships/CreateInternship';
 import ViewInternship from './components/Internships/Off-Campus-Internships/ViewInternship';
 import UpdateInternship from './components/Internships/Off-Campus-Internships/UpdateInternship';
 import OtherOffCampusOpportunities from './components/OtherOpportunities/OtherOffCampusOpportunities';
