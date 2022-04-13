@@ -8,7 +8,7 @@ import { AdminDashboardTitles } from '../../../utils/cardTitles';
 
 export default function AdminDashboard() {
   return (
-    <Box sx={{ flexGrow: 1 }} my={{ xs: 6, sm: 8, md: 10 }}>
+    <Box sx={{ flexGrow: 1 }} my={{ xs: 6, sm: 8, md: 6 }}>
       <Grid
         container
         spacing={{ xs: 2, md: 7 }}
