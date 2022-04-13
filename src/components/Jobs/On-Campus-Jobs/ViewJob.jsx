@@ -26,90 +26,225 @@ const ViewOnCampusJob = () => {
   if (job !== null) {
     return (
       <Container align="center">
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Link
-            to="/jobs/on-campus"
-            style={{
-              textDecoration: 'none',
-              color: 'black',
-              marginRight: 0
-            }}
-          >
-            <Button
-              variant="contained"
-              sx={{ width: '100px', backgroundColor: '#75A2C9' }}
-            >
-              {`Back`}
-            </Button>
-          </Link>
-          <Typography
-            variant="h3"
-            gutterBottom
-            component="div"
-            mt={4}
-            align="center"
-            width="100%"
-          >
-            On-Campus Jobs
-          </Typography>
-        </Box>
         <Box
           sx={{
             display: 'flex',
+            bgcolor: '#F7F7F7',
+            border: 0.2,
+            borderColor: '#e8e8e8',
             flexDirection: 'column',
             p: 1,
-            m: 1,
-            bgcolor: '#FFFFFF',
-            borderRadius: 1,
-            alignItems: 'flex-start',
-            alignContent: 'stretch'
+            mt: 6,
+            mb: 10
           }}
+          width="100%"
         >
-          <Box
-            sx={{
-              display: 'flex',
-              bgcolor: '#F7F7F7',
-              border: 0.2,
-              borderColor: '#e8e8e8',
-              alignItems: 'flex-start',
-              flexDirection: 'column'
-            }}
-            width="100%"
-          >
-            <Box ml={2} mr={2} width="100%" alignContent="flex-start" mt={4}>
-              <Typography variant="h5" gutterBottom component="div">
+          <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+            <Link
+              to="/jobs/off-campus"
+              style={{
+                textDecoration: 'none',
+                color: 'black',
+                marginLeft: '20px'
+                //marginRight: 0
+              }}
+            >
+              <Button
+                variant="contained"
+                sx={{ width: '100px', backgroundColor: '#75A2C9' }}
+              >
+                {`Back`}
+              </Button>
+            </Link>
+            <Box
+              sx={{ alignSelf: 'center', width: '100%', marginLeft: '-120px' }}
+            >
+              <Typography
+                variant="h3"
+                gutterBottom
+                component="div"
+                sx={{ margin: 'auto' }}
+              >
+                {job.companyName}
+              </Typography>
+            </Box>
+          </Box>
+          <Box>
+            <Box>
+              <Typography
+                variant="h5"
+                gutterBottom
+                component="div"
+                sx={{ marginTop: '30px' }}
+              >
                 {job.tagline}
               </Typography>
             </Box>
             <Box
               sx={{
                 display: 'flex',
-                flexDirection: 'row',
-                alignContent: 'space-between'
+                alignItems: 'flex-start',
+                flexDirection: 'column',
+                marginLeft: '20px',
+                marginTop: '40px'
               }}
-              m={4}
-              width="100%"
             >
-              <Box width="100%">
-                <Typography my={2}>Company: {job.companyName}</Typography>
-                <Typography>Batch: {job.batch}</Typography>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '20px'
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{ fontWeight: 'bold', marginRight: '15px' }}
+                >
+                  Batch:
+                </Typography>
+                <Typography variant="h6" gutterBottom component="div">
+                  {job.batch}
+                </Typography>
               </Box>
-              <Box width="100%" m="auto">
-                <Typography my={2}>Position: {job.position}</Typography>
-                <Typography>
-                  Last Date:
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '20px'
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{ fontWeight: 'bold', marginRight: '15px' }}
+                >
+                  Position:
+                </Typography>
+                <Typography variant="h6" gutterBottom component="div">
+                  {job.position}
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '20px'
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{ fontWeight: 'bold', marginRight: '15px' }}
+                >
+                  Branch:
+                </Typography>
+                <Typography variant="h6" gutterBottom component="div">
+                  {job.branch}
+                </Typography>
+              </Box>
+
+              <Box sx={{ display: 'flex', marginBottom: '20px' }}>
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{ fontWeight: 'bold', marginRight: '15px' }}
+                >
+                  Description:
+                </Typography>
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{
+                    maxWidth: '85%',
+                    textAlign: 'justify'
+                  }}
+                >
+                  {job.description}
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '20px'
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{ fontWeight: 'bold', marginRight: '15px' }}
+                >
+                  GPA:
+                </Typography>
+                <Typography variant="h6" gutterBottom component="div">
+                  {job.GPA}
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '20px',
+                  marginTop: '20px'
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{ fontWeight: 'bold', marginRight: '8px' }}
+                >
+                  Link:
+                </Typography>
+                <Typography variant="h6" gutterBottom component="div">
+                  <a
+                    href={`${job.link}`}
+                    style={{ color: '#75A2C9' }}
+                    target="_blank"
+                  >
+                    {job.link}
+                  </a>
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '20px'
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{ fontWeight: 'bold', marginRight: '10px' }}
+                >
+                  Last Date to Apply:
+                </Typography>
+                <Typography variant="h6" gutterBottom component="div">
                   {job.lastDateToApply
                     .toDate()
                     .toLocaleDateString('en', options)}
                 </Typography>
               </Box>
-              <Typography my={2}>Description: {job.description}</Typography>
 
-              <Typography my={2}>Person to Contact: {job.contact}</Typography>
-              <Typography my={2}>Branch: {job.branch}</Typography>
-              <Typography my={2}>GPA: {job.GPA}</Typography>
+              <Typography variant="h6" gutterBottom component="div">
+                For any queries regarding the same contact{' '}
+                <strong>{job.contact}</strong>, CDC.
+              </Typography>
             </Box>
-            <Typography my={2}>Link: {job.link}</Typography>
           </Box>
         </Box>
       </Container>
