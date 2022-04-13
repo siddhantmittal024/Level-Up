@@ -41,7 +41,7 @@ const ViewOnCampusJob = () => {
         >
           <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
             <Link
-              to="/jobs/off-campus"
+              to="/jobs/on-campus"
               style={{
                 textDecoration: 'none',
                 color: 'black',

@@ -26,85 +26,179 @@ const ViewInternship = () => {
   if (intern !== null) {
     return (
       <Container align="center">
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Link
-            to="/internships/off-campus"
-            style={{
-              textDecoration: 'none',
-              color: 'black',
-              marginRight: 0
-            }}
-          >
-            <Button
-              variant="contained"
-              sx={{ width: '100px', backgroundColor: '#75A2C9' }}
-            >
-              {`Back`}
-            </Button>
-          </Link>
-          <Typography
-            variant="h3"
-            gutterBottom
-            component="div"
-            mt={4}
-            align="center"
-            width="100%"
-          >
-            Off-Campus Internships
-          </Typography>
-        </Box>
         <Box
           sx={{
             display: 'flex',
+            bgcolor: '#F7F7F7',
+            border: 0.2,
+            borderColor: '#e8e8e8',
             flexDirection: 'column',
             p: 1,
-            m: 1,
-            bgcolor: '#FFFFFF',
-            borderRadius: 1,
-            alignItems: 'flex-start',
-            alignContent: 'stretch'
+            mt: 6,
+            mb: 10
           }}
+          width="100%"
         >
-          <Box
-            sx={{
-              display: 'flex',
-              bgcolor: '#F7F7F7',
-              border: 0.2,
-              borderColor: '#e8e8e8',
-              alignItems: 'flex-start',
-              flexDirection: 'column'
-            }}
-            width="100%"
-          >
-            <Box ml={2} mr={2} width="100%" alignContent="flex-start" mt={4}>
-              <Typography variant="h5" gutterBottom component="div">
+          <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+            <Link
+              to="/internships/off-campus"
+              style={{
+                textDecoration: 'none',
+                color: 'black',
+                marginLeft: '20px'
+                //marginRight: 0
+              }}
+            >
+              <Button
+                variant="contained"
+                sx={{ width: '100px', backgroundColor: '#75A2C9' }}
+              >
+                {`Back`}
+              </Button>
+            </Link>
+            <Box
+              sx={{ alignSelf: 'center', width: '100%', marginLeft: '-120px' }}
+            >
+              <Typography
+                variant="h3"
+                gutterBottom
+                component="div"
+                sx={{ margin: 'auto' }}
+              >
+                {intern.companyName}
+              </Typography>
+            </Box>
+          </Box>
+          <Box>
+            <Box>
+              <Typography
+                variant="h5"
+                gutterBottom
+                component="div"
+                sx={{ marginTop: '30px' }}
+              >
                 {intern.tagline}
               </Typography>
             </Box>
             <Box
               sx={{
                 display: 'flex',
-                flexDirection: 'row',
-                alignContent: 'space-between'
+                alignItems: 'flex-start',
+                flexDirection: 'column',
+                marginLeft: '20px',
+                marginTop: '40px'
               }}
-              m={4}
-              width="100%"
             >
-              <Box width="100%">
-                <Typography my={2}>Company: {intern.companyName}</Typography>
-                <Typography>Batch: {intern.batch}</Typography>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '20px'
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{ fontWeight: 'bold', marginRight: '15px' }}
+                >
+                  Batch:
+                </Typography>
+                <Typography variant="h6" gutterBottom component="div">
+                  {intern.batch}
+                </Typography>
               </Box>
-              <Box width="100%" m="auto">
-                <Typography my={2}>Position: {intern.position}</Typography>
-                <Typography>
-                  Last Date:
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '20px'
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{ fontWeight: 'bold', marginRight: '15px' }}
+                >
+                  Position:
+                </Typography>
+                <Typography variant="h6" gutterBottom component="div">
+                  {intern.position}
+                </Typography>
+              </Box>
+
+              <Box sx={{ display: 'flex', marginBottom: '20px' }}>
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{ fontWeight: 'bold', marginRight: '15px' }}
+                >
+                  Description:
+                </Typography>
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{
+                    maxWidth: '85%',
+                    textAlign: 'justify'
+                  }}
+                >
+                  {intern.description}
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '20px',
+                  marginTop: '20px'
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{ fontWeight: 'bold', marginRight: '15px' }}
+                >
+                  Link:
+                </Typography>
+                <Typography variant="h6" gutterBottom component="div">
+                  <a
+                    href={`${intern.link}`}
+                    style={{ color: '#75A2C9' }}
+                    target="_blank"
+                  >
+                    {intern.link}
+                  </a>
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '20px'
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  component="div"
+                  sx={{ fontWeight: 'bold', marginRight: '10px' }}
+                >
+                  Last Date to Apply:
+                </Typography>
+                <Typography variant="h6" gutterBottom component="div">
                   {intern.lastDateToApply
                     .toDate()
                     .toLocaleDateString('en', options)}
                 </Typography>
               </Box>
-              <Typography my={2}>Description: {intern.description}</Typography>
-              <Typography my={2}>Link: {intern.link}</Typography>
             </Box>
           </Box>
         </Box>
