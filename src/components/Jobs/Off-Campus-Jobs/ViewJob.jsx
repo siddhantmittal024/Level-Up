@@ -32,7 +32,6 @@ const ViewJob = () => {
             bgcolor: '#F7F7F7',
             border: 0.2,
             borderColor: '#e8e8e8',
-            //alignItems: 'flex-start',
             flexDirection: 'column',
             p: 1,
             mt: 6,
@@ -46,7 +45,8 @@ const ViewJob = () => {
               style={{
                 textDecoration: 'none',
                 color: 'black',
-                marginRight: 0
+                marginLeft: '20px'
+                //marginRight: 0
               }}
             >
               <Button
@@ -57,7 +57,7 @@ const ViewJob = () => {
               </Button>
             </Link>
             <Box
-              sx={{ alignSelf: 'center', width: '100%', marginLeft: '-90px' }}
+              sx={{ alignSelf: 'center', width: '100%', marginLeft: '-120px' }}
             >
               <Typography
                 variant="h3"
