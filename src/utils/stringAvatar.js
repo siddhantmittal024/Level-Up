@@ -3,7 +3,7 @@ function stringToColor(string) {
   let i;
   /* eslint-disable no-bitwise */
   for (i = 0; i < string.length; i += 1) {
-    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    hash = string.charCodeAt(i) + ((hash << 1) - hash);
   }
 
   let color = '#';
@@ -25,4 +25,4 @@ export const stringAvatar = (name) => {
     },
     children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`
   };
-}
+};

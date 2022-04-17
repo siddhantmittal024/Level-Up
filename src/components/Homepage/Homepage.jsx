@@ -81,6 +81,14 @@ const Homepage = () => {
             level <strong>up</strong>
           </Typography>
 
+          <Typography
+            variant="h6"
+            align="center"
+            sx={{ color: '#868786', fontWeight: '500', maxWidth: 345 }}
+          >
+            A career development portal for college students.
+          </Typography>
+
           <Button
             variant="contained"
             onClick={handleSignIn}
