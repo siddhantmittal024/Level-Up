@@ -58,23 +58,23 @@ export const AdminDashboardTitles = [
 export const StudyMaterialTitles = [
   {
     title: 'Ebooks',
-    imageUrl: ''
+    imageUrl: '/images/ebooks.jpg'
   },
   {
     title: 'Questions to Ask',
-    imageUrl: ''
+    imageUrl: '/images/ques-to-ask.png'
   },
   {
     title: 'Research Internship',
-    imageUrl: ''
+    imageUrl: '/images/research-internship.png'
   },
   {
     title: 'Open Source',
-    imageUrl: ''
+    imageUrl: '/images/open-source.jpeg'
   },
   {
     title: 'Interview Preparation',
-    imageUrl: ''
+    imageUrl: '/images/interview-prep.jpg'
   }
 ];
 

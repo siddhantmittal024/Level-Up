@@ -17,10 +17,10 @@ const StudyMaterial = () => {
           alignItems="center"
         >
           {StudyMaterialTitles.map((item, index) => {
-            const url = item.title.replace(' ', '-').toLowerCase();
+            const url = item.title.replaceAll(' ', '-').toLowerCase();
             return (
               <Grid item xs={2} sm={4} md={4} key={index}>
-                <Link to={`/${url}`} style={{ textDecoration: 'none' }}>
+                <Link to={`/study-material/${url}`} style={{ textDecoration: 'none' }}>
                   <SectionCard title={item.title} imageUrl={item.imageUrl} />
                 </Link>
               </Grid>
