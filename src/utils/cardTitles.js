@@ -55,6 +55,29 @@ export const AdminDashboardTitles = [
   }
 ];
 
+export const StudyMaterialTitles = [
+  {
+    title: 'Ebooks',
+    imageUrl: ''
+  },
+  {
+    title: 'Questions to Ask',
+    imageUrl: ''
+  },
+  {
+    title: 'Research Internship',
+    imageUrl: ''
+  },
+  {
+    title: 'Open Source',
+    imageUrl: ''
+  },
+  {
+    title: 'Interview Preparation',
+    imageUrl: ''
+  }
+];
+
 export const SubSectiontitles = [
   {
     title: 'On Campus',
