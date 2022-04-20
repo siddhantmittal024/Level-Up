@@ -46,6 +46,7 @@ import EbookSection from './components/StudyMaterial/EbookSection';
 import QuestionsToAskSection from './components/StudyMaterial/QuestionSection';
 import ResearchIntershipsSection from './components/StudyMaterial/ResearchInternshipSection';
 import OpenSourceSection from './components/StudyMaterial/OpenSourceSection';
+import InterviewPrepSection from './components/StudyMaterial/InterviewPrepSection';
 
 function App() {
   const dispatch = useDispatch();
@@ -126,6 +127,12 @@ function App() {
               exact
               path="/study-material/open-source"
               component={OpenSourceSection}
+            />
+
+            <PrivateRoute
+              exact
+              path="/study-material/interview-preparation"
+              component={InterviewPrepSection}
             />
 
             <PrivateRoute
