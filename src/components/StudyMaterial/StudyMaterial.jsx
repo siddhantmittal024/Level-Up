@@ -34,258 +34,163 @@ const StudyMaterial = () => {
       /* <Box m={2}>
         <Box sx={{ backgroundColor: '#75A2C9' }}>
           <Typography variant="h6" component="div" gutterBottom align="center">
-            List of Research Internships for Undergraduate Students:
+            Collection of Open Source Events and Hackathons on a monthly basis:
           </Typography>
         </Box>
         <Typography variant="body2" gutterBottom>
-          The following are some global research internship positions: Canada:
+          January:
           <ListItem sx={{ display: 'list-item' }}>
-            MITACS Globalink, for research positions in Canada.
-          </ListItem>
-          US:
-          <ListItem sx={{ display: 'list-item' }}>
-            Santa Fe Institute Summer Research Experience
+            <a href="https://careers.google.com/students/engineering-and-technical-internships/">
+              STEP(Google)
+            </a>
           </ListItem>
           <ListItem sx={{ display: 'list-item' }}>
-            NASA - CalTech Summer Undergraduate Research Fellowship (SURF), for
-            research positions at Jet Propulsion Laboratory, California
-            Institute of Technology.
+            <a href="https://summerofcode.withgoogle.com/">
+              Google Summer of Code
+            </a>
           </ListItem>
           <ListItem sx={{ display: 'list-item' }}>
-            Robotics Institute for Summer Scholars, CMU
-          </ListItem>
-          SWITZERLAND:
-          <ListItem sx={{ display: 'list-item' }}>
-            Research fellowship at ETH Zurich
+            <a href="https://www.openmainframeproject.org/projects/mentorship-program">
+              Open Mainframe Project Mentorship Program- Linux Foundation{' '}
+            </a>
           </ListItem>
           <ListItem sx={{ display: 'list-item' }}>
-            CERN Summer Student Program
+            <a href="https://research.redhat.com/red-hat-open-source-contest/">
+              Red Hat Open Source Contest{' '}
+            </a>
+          </ListItem>
+          March
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://www.codess.net/about-codess/">Codess</a>
           </ListItem>
           <ListItem sx={{ display: 'list-item' }}>
-            E3, EPFL (Switzerland)
-          </ListItem>
-          GERMANY:
-          <ListItem sx={{ display: 'list-item' }}>
-            Max Planck Institute for Software Systems
+            <a href="https://sites.google.com/view/summerofearthengine/home?authuser=0">
+              Google Summer of Earth Engine{' '}
+            </a>
           </ListItem>
           <ListItem sx={{ display: 'list-item' }}>
-            Warwick Statistics Internship Scheme, University of Warwick
+            <a href="https://railsgirlssummerofcode.org/">
+              Rails Girls Summer of Code{' '}
+            </a>
           </ListItem>
           <ListItem sx={{ display: 'list-item' }}>
-            DAAD WISE Scholarship
+            <a href="https://wiki.linuxfoundation.org/lkmp">
+              Linux Kernel Mentorship Program
+            </a>
           </ListItem>
-          UK:
+          April
           <ListItem sx={{ display: 'list-item' }}>
-            DSSGx UK Summer Fellowship, University of Warwick
-          </ListItem>
-          <ListItem sx={{ display: 'list-item' }}>
-            Visual Geometry Group
-          </ListItem>
-          INDIA:
-          <ListItem sx={{ display: 'list-item' }}>
-            ICTS LONG TERM VISITING STUDENTS PROGRAM for both International and
-            Indian Students. Aims to provide opportunities to students of
-            science, mathematics and engineering to spend a longer period of
-            time (1 or 2 semesters).
+            <a href="https://rare-technologies.com/incubator/">
+              RARE Technologies Student Incubator Programme{' '}
+            </a>
           </ListItem>
           <ListItem sx={{ display: 'list-item' }}>
-            ICTS SN BHATT Memorial Excellence Fellowship for Undergraduate
-            students of science, mathematics and engineering, who are in their
-            third, fourth or fifth year of the program are eligible to apply.
-          </ListItem>
-          SOUTH KOREA:
-          <ListItem sx={{ display: 'list-item' }}>
-            SPIKE @ UNIST, Summer Program for Internship and Korean Experience
+            <a href="https://www.igalia.com/2020/02/03/The-2020-Web-Engines-Hackfest-is-happening-in-May.html">
+              Igalia Web Engines Hackfest{' '}
+            </a>
           </ListItem>
           <ListItem sx={{ display: 'list-item' }}>
-            SPIKE@UNIST (South Korea)
+            <a href="https://lab.codingblocks.com/boss">
+              BOSS - Bountiful Open Source Summer{' '}
+            </a>
+          </ListItem>
+          May
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://developers.google.com/season-of-docs">
+              Season of Docs{' '}
+            </a>
           </ListItem>
           <ListItem sx={{ display: 'list-item' }}>
-            GIST Global Internship Program (South Korea)
-          </ListItem>
-          TAIWAN:
-          <ListItem sx={{ display: 'list-item' }}>
-            NTHU Summer Internship Program
+            <a href="https://www.esa.int/Enabling_Support/Space_Engineering_Technology/SOCIS_The_ESA_Summer_of_Code_in_Space">
+              ESA Summer of Code in Space{' '}
+            </a>
           </ListItem>
           <ListItem sx={{ display: 'list-item' }}>
-            UROP International, RWTH Aachen
+            <a href="https://www.oss.kr/en_oss_world_challenage">
+              OSS World Challenge
+            </a>
           </ListItem>
           <ListItem sx={{ display: 'list-item' }}>
-            TIGP-IIP, Academia Sincia, Taiwan
+            <a href="http://sigmm.org/Resources/software/ossc">
+              ACM MM Open Source Software Competition{' '}
+            </a>
           </ListItem>
-          JAPAN:
-          <ListItem sx={{ display: 'list-item' }}>NIMS (Japan)</ListItem>
+          June
           <ListItem sx={{ display: 'list-item' }}>
-            Hennge Global Internship Program, for remote internship in a
-            Japan-based tech start-up.
+            <a href="https://wiki.linuxfoundation.org/lkmp">
+              Linux Kernel Mentorship Programlink{' '}
+            </a>
           </ListItem>
           <ListItem sx={{ display: 'list-item' }}>
-            OIST Research Internship Program, Okinawa Institute of Science and
-            Technology
+            <a href="http://pclubsummerofcode.in/">PClub Summer Of Code </a>
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://summer.iscas.ac.cn/">
+              Summer ISCAS Open Source Promotion Plan{' '}
+            </a>
+          </ListItem>
+          July
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://alibaba.github.io/">Alibaba Summer of Code</a>
+          </ListItem>
+          August
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://hackinout.co/">InOut Hackathon </a>
+          </ListItem>
+          September
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://codeheat.org/">
+              CodeHeat Coding Contest of FOSSASIA{' '}
+            </a>
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="http://mdg.iitr.ac.in/soc.html">
+              MDG Season of Code- IIT-R{' '}
+            </a>
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://slop.dscdaiict.in/">
+              Semester Long Project- DAIICT{' '}
+            </a>
+          </ListItem>
+          October
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest </a>
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://in.pycon.org/2020/">Pycon</a>
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://wiki.linuxfoundation.org/lkmp">
+              Linux Kernel Mentorship Programlink{' '}
+            </a>
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://halite.io/">Halite AI Bot Challenge </a>
+          </ListItem>
+          November
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://www.ecell.in/esummit/ihack/"> I_Hack (IIT-B) </a>
+          </ListItem>
+          December
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://www.linkedin.com/company/smart-india-hackathon-2020/">
+              SIH (Smart India Hackathon){' '}
+            </a>
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://kwoc.kossiitkgp.org/">
+              KWoC (Kharagpur Winter of Code){' '}
+            </a>
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://season.kde.org/">KDE Student Programs</a>
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            <a href="https://24pullrequests.com/about">24 Pull Requests </a>
           </ListItem>
         </Typography>
       </Box> */
-
-    //   <Box m={2}>
-    //     <Box sx={{ backgroundColor: '#75A2C9' }}>
-    //       <Typography variant="h6" component="div" gutterBottom align="center">
-    //         Collection of Open Source Events and Hackathons on a monthly basis:
-    //       </Typography>
-    //     </Box>
-    //     <Typography variant="body2" gutterBottom>
-    //       January:
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://careers.google.com/students/engineering-and-technical-internships/">
-    //           STEP(Google)
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://summerofcode.withgoogle.com/">
-    //           Google Summer of Code
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://www.openmainframeproject.org/projects/mentorship-program">
-    //           Open Mainframe Project Mentorship Program- Linux Foundation{' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://research.redhat.com/red-hat-open-source-contest/">
-    //           Red Hat Open Source Contest{' '}
-    //         </a>
-    //       </ListItem>
-    //       March
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://www.codess.net/about-codess/">Codess</a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://sites.google.com/view/summerofearthengine/home?authuser=0">
-    //           Google Summer of Earth Engine{' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://railsgirlssummerofcode.org/">
-    //           Rails Girls Summer of Code{' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://wiki.linuxfoundation.org/lkmp">
-    //           Linux Kernel Mentorship Program
-    //         </a>
-    //       </ListItem>
-    //       April
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://rare-technologies.com/incubator/">
-    //           RARE Technologies Student Incubator Programme{' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://www.igalia.com/2020/02/03/The-2020-Web-Engines-Hackfest-is-happening-in-May.html">
-    //           Igalia Web Engines Hackfest{' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://lab.codingblocks.com/boss">
-    //           BOSS - Bountiful Open Source Summer{' '}
-    //         </a>
-    //       </ListItem>
-    //       May
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://developers.google.com/season-of-docs">
-    //           Season of Docs{' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://www.esa.int/Enabling_Support/Space_Engineering_Technology/SOCIS_The_ESA_Summer_of_Code_in_Space">
-    //           ESA Summer of Code in Space{' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://www.oss.kr/en_oss_world_challenage">
-    //           OSS World Challenge
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="http://sigmm.org/Resources/software/ossc">
-    //           ACM MM Open Source Software Competition{' '}
-    //         </a>
-    //       </ListItem>
-    //       June
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://wiki.linuxfoundation.org/lkmp">
-    //           Linux Kernel Mentorship Programlink{' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="http://pclubsummerofcode.in/">PClub Summer Of Code </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://summer.iscas.ac.cn/">
-    //           Summer ISCAS Open Source Promotion Plan{' '}
-    //         </a>
-    //       </ListItem>
-    //       July
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://alibaba.github.io/">Alibaba Summer of Code</a>
-    //       </ListItem>
-    //       August
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://hackinout.co/">InOut Hackathon </a>
-    //       </ListItem>
-    //       September
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://codeheat.org/">
-    //           CodeHeat Coding Contest of FOSSASIA{' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="http://mdg.iitr.ac.in/soc.html">
-    //           MDG Season of Code- IIT-R{' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://slop.dscdaiict.in/">
-    //           Semester Long Project- DAIICT{' '}
-    //         </a>
-    //       </ListItem>
-    //       October
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://in.pycon.org/2020/">Pycon</a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://wiki.linuxfoundation.org/lkmp">
-    //           Linux Kernel Mentorship Programlink{' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://halite.io/">Halite AI Bot Challenge </a>
-    //       </ListItem>
-    //       November
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://www.ecell.in/esummit/ihack/"> I_Hack (IIT-B) </a>
-    //       </ListItem>
-    //       December
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://www.linkedin.com/company/smart-india-hackathon-2020/">
-    //           SIH (Smart India Hackathon){' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://kwoc.kossiitkgp.org/">
-    //           KWoC (Kharagpur Winter of Code){' '}
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://season.kde.org/">KDE Student Programs</a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://24pullrequests.com/about">24 Pull Requests </a>
-    //       </ListItem>
-    //     </Typography>
-    //   </Box>
 
     //   <Box m={2}>
     //     <Box sx={{ backgroundColor: '#75A2C9' }}>

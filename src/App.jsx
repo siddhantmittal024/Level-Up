@@ -45,6 +45,7 @@ import UpdateUser from './components/Users/UpdateUser';
 import EbookSection from './components/StudyMaterial/EbookSection';
 import QuestionsToAskSection from './components/StudyMaterial/QuestionSection';
 import ResearchIntershipsSection from './components/StudyMaterial/ResearchInternshipSection';
+import OpenSourceSection from './components/StudyMaterial/OpenSourceSection';
 
 function App() {
   const dispatch = useDispatch();
@@ -108,7 +109,7 @@ function App() {
               path="/study-material/ebooks"
               component={EbookSection}
             />
-            
+
             <PrivateRoute
               exact
               path="/study-material/questions-to-ask"
@@ -119,6 +120,12 @@ function App() {
               exact
               path="/study-material/research-internship"
               component={ResearchIntershipsSection}
+            />
+
+            <PrivateRoute
+              exact
+              path="/study-material/open-source"
+              component={OpenSourceSection}
             />
 
             <PrivateRoute
