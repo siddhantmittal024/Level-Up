@@ -9,21 +9,24 @@ import { CardActionArea } from '@mui/material';
 const SectionCard = ({ title, imageUrl }) => {
   //const history = useHistory();
   return (
-    <Card sx={{ maxWidth: 320, backgroundColor: '#EBEBEB' }}>
+    <Card sx={{ maxWidth: 280, backgroundColor: '#EBEBEB', boxShadow:5 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height={'180'}
+          height={'200'}
           image={imageUrl}
           alt={title}
         />
-        <CardContent>
+        <CardContent sx={{padding:'0px'}}>
           <Typography
             gutterBottom
-            variant="h5"
+            variant="h6"
             component="div"
             textAlign="center"
+            //alignItems="center"
             textTransform="uppercase"
+            sx={{padding:'5px', marginTop:'7px'}}
+            
           >
             {title}
           </Typography>
