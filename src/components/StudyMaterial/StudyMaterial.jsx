@@ -30,262 +30,101 @@ const StudyMaterial = () => {
       </Box>
     </Container>
 
-    // <div>
-    //   <Typography variant="h3" align="center" component="div" gutterBottom>
-    //     Study Material
-    //   </Typography>
-    //   <Box m={2}>
-    //     <Box sx={{ backgroundColor: '#75A2C9' }}>
-    //       <Typography variant="h6" component="div" gutterBottom align="center">
-    //         The Ebook Foundation
-    //       </Typography>
-    //     </Box>
-    //     <Typography variant="body2" gutterBottom>
-    //       This project lists books and other resources grouped by genres, in
-    //       multiple languages. The resources in English are further linked below:
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://github.com/EbookFoundation/free-programming-books/blob/main/books/free-programming-books-langs.md">
-    //           Books grouped by programming language
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://github.com/EbookFoundation/free-programming-books/blob/main/books/free-programming-books-subjects.md">
-    //           Books grouped by subject
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://github.com/EbookFoundation/free-programming-books/blob/main/courses/free-courses-en.md">
-    //           Free online courses
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://github.com/EbookFoundation/free-programming-books/blob/main/more/free-programming-interactive-tutorials-en.md">
-    //           Interactive Programming Resources
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://github.com/EbookFoundation/free-programming-books/blob/main/more/problem-sets-competitive-programming.md">
-    //           Problem Sets, and Competitive Programming
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://github.com/EbookFoundation/free-programming-books/blob/main/casts/free-podcasts-screencasts-en.md">
-    //           Podcasts and Screencasts
-    //         </a>
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         <a href="https://github.com/EbookFoundation/free-programming-books/blob/main/more/free-programming-playgrounds.md">
-    //           Programming Playgrounds
-    //         </a>
-    //       </ListItem>
-    //     </Typography>
-    //   </Box>
 
-      // <Box m={2}>
-      //   <Box sx={{ backgroundColor: '#75A2C9' }}>
-      //     <Typography variant="h6" component="div" gutterBottom align="center">
-      //       Questions to ask the company during your interview:
-      //     </Typography>
-      //   </Box>
-      //   <Typography variant="body2" gutterBottom>
-      //     The Role:
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       What's the on-call plan/schedule? (what's the pay for standby and
-      //       call-out)
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       Are there any specific goals for me?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       What are the tasks I would do on a usual day?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       What does onboarding look like?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       What are the expected/core work hours?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       How can I develop in my new role / what opportunities are offered?
-      //     </ListItem>
-      //     Tech
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       How do you test code?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       How do you track bugs?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       Are all developers allowed to have local admin access to their
-      //       computers?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       Tell me about your technical principles or vision.
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       Is there a standardized development environment? Is it enforced?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       How do you monitor projects?
-      //     </ListItem>
-      //     The Team
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       How is the work organized?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       Who sets the priorities / schedule?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       Do you use any tools for project organization? What is your
-      //       experience with them?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       Would there be a regular 1-on-1 with my manager?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       What does a code review look like here?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       How big are the teams?
-      //     </ListItem>
-      //     Your Potential Coworkers
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       Who do developers tend to learn from?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       What do you like best about working there?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       What do you like least?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       What would you change if you could?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       How long has the longest team member been there?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       If it's a small team, has there been experiences of conflicting
-      //       personalities and how was this dealt with?
-      //     </ListItem>
-      //     The Company
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       Why is the company hiring? (product growth / new product /
-      //       fluctuation / ...)
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       Is there a budget for getting certifications?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       What kind of social events does the team/company host and are these
-      //       attended by everyone?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       Can I contribute to FOSS projects? Are there any approvals needed?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       What does clean code mean to the majority of developers here?
-      //     </ListItem>
-      //     <ListItem sx={{ display: 'list-item' }}>
-      //       Is there a Sports / Team building Activity?
-      //     </ListItem>
-      //   </Typography>
-      // </Box>
-
-    //   <Box m={2}>
-    //     <Box sx={{ backgroundColor: '#75A2C9' }}>
-    //       <Typography variant="h6" component="div" gutterBottom align="center">
-    //         List of Research Internships for Undergraduate Students:
-    //       </Typography>
-    //     </Box>
-    //     <Typography variant="body2" gutterBottom>
-    //       The following are some global research internship positions: Canada:
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         MITACS Globalink, for research positions in Canada.
-    //       </ListItem>
-    //       US:
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         Santa Fe Institute Summer Research Experience
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         NASA - CalTech Summer Undergraduate Research Fellowship (SURF), for
-    //         research positions at Jet Propulsion Laboratory, California
-    //         Institute of Technology.
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         Robotics Institute for Summer Scholars, CMU
-    //       </ListItem>
-    //       SWITZERLAND:
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         Research fellowship at ETH Zurich
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         CERN Summer Student Program
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         E3, EPFL (Switzerland)
-    //       </ListItem>
-    //       GERMANY:
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         Max Planck Institute for Software Systems
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         Warwick Statistics Internship Scheme, University of Warwick
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         DAAD WISE Scholarship
-    //       </ListItem>
-    //       UK:
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         DSSGx UK Summer Fellowship, University of Warwick
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         Visual Geometry Group
-    //       </ListItem>
-    //       INDIA:
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         ICTS LONG TERM VISITING STUDENTS PROGRAM for both International and
-    //         Indian Students. Aims to provide opportunities to students of
-    //         science, mathematics and engineering to spend a longer period of
-    //         time (1 or 2 semesters).
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         ICTS SN BHATT Memorial Excellence Fellowship for Undergraduate
-    //         students of science, mathematics and engineering, who are in their
-    //         third, fourth or fifth year of the program are eligible to apply.
-    //       </ListItem>
-    //       SOUTH KOREA:
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         SPIKE @ UNIST, Summer Program for Internship and Korean Experience
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         SPIKE@UNIST (South Korea)
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         GIST Global Internship Program (South Korea)
-    //       </ListItem>
-    //       TAIWAN:
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         NTHU Summer Internship Program
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         UROP International, RWTH Aachen
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         TIGP-IIP, Academia Sincia, Taiwan
-    //       </ListItem>
-    //       JAPAN:
-    //       <ListItem sx={{ display: 'list-item' }}>NIMS (Japan)</ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         Hennge Global Internship Program, for remote internship in a
-    //         Japan-based tech start-up.
-    //       </ListItem>
-    //       <ListItem sx={{ display: 'list-item' }}>
-    //         OIST Research Internship Program, Okinawa Institute of Science and
-    //         Technology
-    //       </ListItem>
-    //     </Typography>
-    //   </Box>
+      /* <Box m={2}>
+        <Box sx={{ backgroundColor: '#75A2C9' }}>
+          <Typography variant="h6" component="div" gutterBottom align="center">
+            List of Research Internships for Undergraduate Students:
+          </Typography>
+        </Box>
+        <Typography variant="body2" gutterBottom>
+          The following are some global research internship positions: Canada:
+          <ListItem sx={{ display: 'list-item' }}>
+            MITACS Globalink, for research positions in Canada.
+          </ListItem>
+          US:
+          <ListItem sx={{ display: 'list-item' }}>
+            Santa Fe Institute Summer Research Experience
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            NASA - CalTech Summer Undergraduate Research Fellowship (SURF), for
+            research positions at Jet Propulsion Laboratory, California
+            Institute of Technology.
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            Robotics Institute for Summer Scholars, CMU
+          </ListItem>
+          SWITZERLAND:
+          <ListItem sx={{ display: 'list-item' }}>
+            Research fellowship at ETH Zurich
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            CERN Summer Student Program
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            E3, EPFL (Switzerland)
+          </ListItem>
+          GERMANY:
+          <ListItem sx={{ display: 'list-item' }}>
+            Max Planck Institute for Software Systems
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            Warwick Statistics Internship Scheme, University of Warwick
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            DAAD WISE Scholarship
+          </ListItem>
+          UK:
+          <ListItem sx={{ display: 'list-item' }}>
+            DSSGx UK Summer Fellowship, University of Warwick
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            Visual Geometry Group
+          </ListItem>
+          INDIA:
+          <ListItem sx={{ display: 'list-item' }}>
+            ICTS LONG TERM VISITING STUDENTS PROGRAM for both International and
+            Indian Students. Aims to provide opportunities to students of
+            science, mathematics and engineering to spend a longer period of
+            time (1 or 2 semesters).
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            ICTS SN BHATT Memorial Excellence Fellowship for Undergraduate
+            students of science, mathematics and engineering, who are in their
+            third, fourth or fifth year of the program are eligible to apply.
+          </ListItem>
+          SOUTH KOREA:
+          <ListItem sx={{ display: 'list-item' }}>
+            SPIKE @ UNIST, Summer Program for Internship and Korean Experience
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            SPIKE@UNIST (South Korea)
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            GIST Global Internship Program (South Korea)
+          </ListItem>
+          TAIWAN:
+          <ListItem sx={{ display: 'list-item' }}>
+            NTHU Summer Internship Program
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            UROP International, RWTH Aachen
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            TIGP-IIP, Academia Sincia, Taiwan
+          </ListItem>
+          JAPAN:
+          <ListItem sx={{ display: 'list-item' }}>NIMS (Japan)</ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            Hennge Global Internship Program, for remote internship in a
+            Japan-based tech start-up.
+          </ListItem>
+          <ListItem sx={{ display: 'list-item' }}>
+            OIST Research Internship Program, Okinawa Institute of Science and
+            Technology
+          </ListItem>
+        </Typography>
+      </Box> */
 
     //   <Box m={2}>
     //     <Box sx={{ backgroundColor: '#75A2C9' }}>

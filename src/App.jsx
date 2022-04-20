@@ -44,6 +44,7 @@ import UsersData from './components/Users';
 import UpdateUser from './components/Users/UpdateUser';
 import EbookSection from './components/StudyMaterial/EbookSection';
 import QuestionsToAskSection from './components/StudyMaterial/QuestionSection';
+import ResearchIntershipsSection from './components/StudyMaterial/ResearchInternshipSection';
 
 function App() {
   const dispatch = useDispatch();
@@ -107,10 +108,17 @@ function App() {
               path="/study-material/ebooks"
               component={EbookSection}
             />
+            
             <PrivateRoute
               exact
               path="/study-material/questions-to-ask"
               component={QuestionsToAskSection}
+            />
+
+            <PrivateRoute
+              exact
+              path="/study-material/research-internship"
+              component={ResearchIntershipsSection}
             />
 
             <PrivateRoute
