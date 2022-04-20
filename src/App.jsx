@@ -43,6 +43,7 @@ import ViewOtherOnCampusOpportunity from './components/OtherOpportunities/OtherO
 import UsersData from './components/Users';
 import UpdateUser from './components/Users/UpdateUser';
 import EbookSection from './components/StudyMaterial/EbookSection';
+import QuestionsToAskSection from './components/StudyMaterial/QuestionSection';
 
 function App() {
   const dispatch = useDispatch();
@@ -101,7 +102,16 @@ function App() {
               component={StudyMaterial}
             />
 
-            <PrivateRoute exact path="/study-material/ebooks" component={EbookSection} />
+            <PrivateRoute
+              exact
+              path="/study-material/ebooks"
+              component={EbookSection}
+            />
+            <PrivateRoute
+              exact
+              path="/study-material/questions-to-ask"
+              component={QuestionsToAskSection}
+            />
 
             <PrivateRoute
               exact

@@ -109,9 +109,15 @@ const Navbar = ({ name }) => {
           >
             <Link
               to="/dashboard"
-              style={{ textDecoration: 'none', color: 'black' }}
+              style={{
+                textDecoration: 'none',
+                color: 'black'
+              }}
             >
-              <Typography variant="h4">
+              <Typography
+                variant="h4"
+                sx={{ '&:hover': { color: 'black' } }}
+              >
                 {' '}
                 level <strong>up</strong>
               </Typography>
