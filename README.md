@@ -2,7 +2,7 @@
 
 React-js, Redux and Firebase Application using [vite](https://vitejs.dev/) as our build tool.)
 
-Hosted on netlify. Give it a look : [Level-Up](https://level-up-101.netlify.app/)
+Hosted on netlify. SNU folks... give it a look : [Level-Up](https://level-up-101.netlify.app/)
 
 ## How to run project
 
